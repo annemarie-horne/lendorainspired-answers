@@ -3254,6 +3254,7 @@ select:focus {
 }
 
 .multi-answer-review-item {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 12px;
@@ -3286,6 +3287,43 @@ select:focus {
 .multi-answer-review-item--mismatch {
   border-left: 3px solid #EF4444;
   background: #FEF2F2;
+}
+
+.multi-answer-review-item--review-approved::before,
+.multi-answer-review-item--review-disapproved::before,
+.multi-answer-review-item--review-marked::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -8px;
+  width: 8px;
+  border-radius: 5px;
+  background: var(--item-review-state-bar, #84CC16);
+  box-shadow: var(--item-review-state-shadow, 0 0 9px rgba(132, 204, 22, 0.42));
+}
+
+.multi-answer-review-item--review-approved {
+  --item-review-state-bar: #84CC16;
+  --item-review-state-shadow: 0 0 9px rgba(132, 204, 22, 0.42);
+}
+
+.multi-answer-review-item--review-disapproved {
+  --item-review-state-bar: #EF4444;
+  --item-review-state-shadow: 0 0 9px rgba(239, 68, 68, 0.4);
+}
+
+.multi-answer-review-item--review-marked {
+  --item-review-state-bar: #0EA5E9;
+  --item-review-state-shadow: 0 0 9px rgba(14, 165, 233, 0.38);
+}
+
+.multi-answer-review-item--review-approved.multi-answer-review-item--review-marked {
+  --item-review-state-bar: linear-gradient(to right, #84CC16 0 50%, #0EA5E9 50% 100%);
+}
+
+.multi-answer-review-item--review-disapproved.multi-answer-review-item--review-marked {
+  --item-review-state-bar: linear-gradient(to right, #EF4444 0 50%, #0EA5E9 50% 100%);
 }
 
 .expected-answer-status--neutral {

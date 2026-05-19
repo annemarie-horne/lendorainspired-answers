@@ -147,6 +147,122 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
+document.addEventListener('change', function (e) {
+  const bulkDecision = e.target.closest('[data-bulk-review-decision]');
+  const bulkMark = e.target.closest('[data-bulk-review-mark]');
+  const itemDecision = e.target.closest('.multi-answer-review-item .review-actions input[type="radio"]');
+  const itemMark = e.target.closest('.multi-answer-review-item .review-actions input[type="checkbox"]');
+
+  if (!bulkDecision && !bulkMark && !itemDecision && !itemMark) return;
+
+  const toolbar = e.target.closest('[data-bulk-review-toolbar]');
+  const changedItem = e.target.closest('.multi-answer-review-item');
+  const questionBlock = toolbar
+    ? toolbar.closest('.question-block')
+    : changedItem && changedItem.closest('.question-block');
+
+  if (!questionBlock || !questionBlock.querySelector('[data-bulk-review-toolbar]')) return;
+
+  function getReviewItems() {
+    return Array.from(questionBlock.querySelectorAll('.multi-answer-review-list--modern > .multi-answer-review-item'));
+  }
+
+  function updateItemReviewState(item) {
+    const checkedDecision = item.querySelector('.review-actions input[type="radio"]:checked');
+    const checkedMark = item.querySelector('.review-actions input[type="checkbox"]:checked');
+
+    item.classList.remove(
+      'multi-answer-review-item--review-approved',
+      'multi-answer-review-item--review-disapproved',
+      'multi-answer-review-item--review-marked'
+    );
+
+    if (checkedDecision && checkedDecision.value === 'approve') {
+      item.classList.add('multi-answer-review-item--review-approved');
+    }
+
+    if (checkedDecision && checkedDecision.value === 'disapprove') {
+      item.classList.add('multi-answer-review-item--review-disapproved');
+    }
+
+    if (checkedMark) {
+      item.classList.add('multi-answer-review-item--review-marked');
+    }
+  }
+
+  function updateAllItemReviewStates() {
+    getReviewItems().forEach(updateItemReviewState);
+  }
+
+  function setQuestionReviewState(decision) {
+    questionBlock.classList.remove('question-block--approved', 'question-block--disapproved');
+
+    if (decision === 'approve') {
+      questionBlock.classList.add('question-block--approved');
+    }
+
+    if (decision === 'disapprove') {
+      questionBlock.classList.add('question-block--disapproved');
+    }
+  }
+
+  function syncQuestionAggregateState() {
+    const items = getReviewItems();
+    const decisions = items.map(function (item) {
+      const checkedDecision = item.querySelector('.review-actions input[type="radio"]:checked');
+      return checkedDecision ? checkedDecision.value : '';
+    });
+    const allApproved = decisions.length > 0 && decisions.every(function (decision) {
+      return decision === 'approve';
+    });
+    const allDisapproved = decisions.length > 0 && decisions.every(function (decision) {
+      return decision === 'disapprove';
+    });
+    const bulkApprove = questionBlock.querySelector('[data-bulk-review-decision][value="approve"]');
+    const bulkDisapprove = questionBlock.querySelector('[data-bulk-review-decision][value="disapprove"]');
+
+    if (allApproved) {
+      if (bulkApprove) bulkApprove.checked = true;
+      setQuestionReviewState('approve');
+      return;
+    }
+
+    if (allDisapproved) {
+      if (bulkDisapprove) bulkDisapprove.checked = true;
+      setQuestionReviewState('disapprove');
+      return;
+    }
+
+    if (bulkApprove) bulkApprove.checked = false;
+    if (bulkDisapprove) bulkDisapprove.checked = false;
+    questionBlock.classList.remove('question-block--approved', 'question-block--disapproved');
+  }
+
+  if (bulkDecision) {
+    const decision = bulkDecision.value;
+
+    questionBlock
+      .querySelectorAll('.review-actions input[type="radio"][value="' + decision + '"]')
+      .forEach(function (radio) {
+        radio.checked = true;
+      });
+
+    updateAllItemReviewStates();
+    setQuestionReviewState(decision);
+    return;
+  }
+
+  if (bulkMark) {
+    questionBlock.classList.toggle('question-block--marked-for-action', bulkMark.checked);
+    return;
+  }
+
+  if (changedItem) {
+    updateItemReviewState(changedItem);
+    syncQuestionAggregateState();
+  }
+});
+
 function syncReviewEvidenceToggleState(panel) {
   if (!panel || !panel.id) return;
 
