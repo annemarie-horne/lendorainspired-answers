@@ -6,7 +6,7 @@
     <title>Lendora Inspired</title>
 
   <link rel="stylesheet" href="./css/timemaker.css?v1">
-  <link rel="stylesheet" href="./css/style.css?v37">
+  <link rel="stylesheet" href="./css/style.css?v43">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&amp;display=swap" rel="stylesheet">
@@ -114,6 +114,9 @@
         <button type="button" class="control-density-toggle" data-control-density-toggle="" aria-pressed="false" aria-label="Collapse control filters" title="Collapse control filters">
           <img src="https://acreation.co.za/lendorainspired/Icons/collapse.svg" alt="" class="control-density-toggle__icon" aria-hidden="true">
         </button>
+        <button type="button" class="evaluation-layer-toggle" data-evaluation-layer-toggle="" aria-pressed="false" aria-label="Hide evaluation markings" title="Hide evaluation markings">
+          <img src="https://acreation.co.za/lendorainspired/Icons/view.svg" alt="" class="evaluation-layer-toggle__icon" aria-hidden="true">
+        </button>
         <button type="button" class="sticky-lock-toggle is-locked" data-sticky-header-toggle="" aria-pressed="true" aria-label="Unlock sticky header" title="Unlock sticky header">
           <img src="https://acreation.co.za/lendorainspired/Icons/locked.svg" alt="" class="sticky-lock-toggle__icon" aria-hidden="true">
         </button>
@@ -174,13 +177,17 @@
     </div>
 
       <div class="global-action-button-group" aria-label="Global action shortcuts">
-        <button type="button" class="context-primary-action-btn context-primary-action-btn--email">Take Action: Email</button>
+        <button type="button" class="context-primary-action-btn context-primary-action-btn--email is-action-active">Take Action: Email</button>
         <button type="button" class="context-primary-action-btn context-primary-action-btn--pt">Take Action: PT</button>
         <button type="button" class="context-primary-action-btn context-primary-action-btn--standard">Take Action: Standard Plan</button>
       </div>
     </div>
   </div>
   </div>
+
+  <button type="button" class="sticky-lock-toggle sticky-lock-toggle--floating is-hidden" data-sticky-header-toggle="" aria-pressed="true" aria-label="Unlock sticky header" title="Unlock sticky header">
+    <img src="https://acreation.co.za/lendorainspired/Icons/locked.svg" alt="" class="sticky-lock-toggle__icon" aria-hidden="true">
+  </button>
 
   <div class="white-shadowed-section-frame-outter">
 
@@ -204,7 +211,7 @@
               </div>
 
               <div class="review-summary-field-row__controls">
-                <button type="button" id="reviewSummaryFirstNameEvidenceToggle" class="expected-answer-toggle-btn" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewSummaryFirstNameEvidence" aria-label="Add comment or attachments">
+                <button type="button" id="reviewSummaryFirstNameEvidenceToggle" class="expected-answer-toggle-btn" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewSummaryFirstNameEvidence" aria-label="Add comment or attachments" title="Add comment or attachments">
                   <span class="expected-answer-toggle-btn__icon">
                     <img src="https://acreation.co.za/lendorainspired/Icons/comment.svg" alt="" class="meta-toggle__icon">
                   </span>
@@ -225,13 +232,13 @@
                   <label class="review-action-check">
                     <input type="checkbox">
                     <span>Mark for Action</span>
-                  </label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select>
+                  </label><select class="review-action-type-select review-action-type-select--email" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select>
 
                   <button type="button" class="review-action-btn">Take Action</button>
                 </div>
               <button type="button" class="expected-answer-toggle-btn action-history-toggle-btn" data-action-history-toggle="" aria-expanded="false" aria-controls="actionHistoryFirstName" aria-label="View previous action details" title="View previous action details"><span class="expected-answer-toggle-btn__icon"><img src="https://acreation.co.za/lendorainspired/Icons/4%20Actions/actions-inactive.svg" alt="" class="meta-toggle__icon"></span><span class="expected-answer-toggle-btn__arrow"></span></button></div><div class="action-history-panel" id="actionHistoryFirstName" hidden=""><div class="action-history-panel__title">Email</div><div class="action-history-panel__content">
-                From: meir@meirezra.com<br/>
-                To: ana@gprosperity.com<br/>
+                From: meir@meirezra.com<br>
+                To: ana@gprosperity.com<br>
                 Subject: Missing first-name confirmation<br>
                 Sent by Meir Ezra on 14 May 2026 14:12
               </div></div>
@@ -265,7 +272,7 @@
               </div>
 
               <div class="review-summary-field-row__controls">
-                <button type="button" id="reviewSummaryLastNameEvidenceToggle" class="expected-answer-toggle-btn" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewSummaryLastNameEvidence" aria-label="Add comment or attachments">
+                <button type="button" id="reviewSummaryLastNameEvidenceToggle" class="expected-answer-toggle-btn" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewSummaryLastNameEvidence" aria-label="Add comment or attachments" title="Add comment or attachments">
                   <span class="expected-answer-toggle-btn__icon">
                     <img src="https://acreation.co.za/lendorainspired/Icons/comment.svg" alt="" class="meta-toggle__icon">
                   </span>
@@ -286,7 +293,7 @@
                   <label class="review-action-check">
                     <input type="checkbox">
                     <span>Mark for Action</span>
-                  </label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select>
+                  </label><select class="review-action-type-select review-action-type-select--email" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select>
 
                   <button type="button" class="review-action-btn">Take Action</button>
                 </div>
@@ -322,7 +329,7 @@
               </div>
 
               <div class="review-summary-field-row__controls">
-                <button type="button" id="reviewSummaryEmailEvidenceToggle" class="expected-answer-toggle-btn" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewSummaryEmailEvidence" aria-label="Add comment or attachments">
+                <button type="button" id="reviewSummaryEmailEvidenceToggle" class="expected-answer-toggle-btn" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewSummaryEmailEvidence" aria-label="Add comment or attachments" title="Add comment or attachments">
                   <span class="expected-answer-toggle-btn__icon">
                     <img src="https://acreation.co.za/lendorainspired/Icons/comment.svg" alt="" class="meta-toggle__icon">
                   </span>
@@ -343,7 +350,7 @@
                   <label class="review-action-check">
                     <input type="checkbox">
                     <span>Mark for Action</span>
-                  </label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select>
+                  </label><select class="review-action-type-select review-action-type-select--email" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select>
 
                   <button type="button" class="review-action-btn">Take Action</button>
                 </div>
@@ -379,7 +386,7 @@
               </div>
 
               <div class="review-summary-field-row__controls">
-                <button type="button" id="reviewSummaryCellPhoneEvidenceToggle" class="expected-answer-toggle-btn" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewSummaryCellPhoneEvidence" aria-label="Add comment or attachments">
+                <button type="button" id="reviewSummaryCellPhoneEvidenceToggle" class="expected-answer-toggle-btn" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewSummaryCellPhoneEvidence" aria-label="Add comment or attachments" title="Add comment or attachments">
                   <span class="expected-answer-toggle-btn__icon">
                     <img src="https://acreation.co.za/lendorainspired/Icons/comment.svg" alt="" class="meta-toggle__icon">
                   </span>
@@ -400,7 +407,7 @@
                   <label class="review-action-check">
                     <input type="checkbox">
                     <span>Mark for Action</span>
-                  </label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select>
+                  </label><select class="review-action-type-select review-action-type-select--email" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select>
 
                   <button type="button" class="review-action-btn">Take Action</button>
                 </div>
@@ -436,7 +443,7 @@
               </div>
 
               <div class="review-summary-field-row__controls">
-                <button type="button" id="reviewSummaryStreetEvidenceToggle" class="expected-answer-toggle-btn" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewSummaryStreetEvidence" aria-label="Add comment or attachments">
+                <button type="button" id="reviewSummaryStreetEvidenceToggle" class="expected-answer-toggle-btn" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewSummaryStreetEvidence" aria-label="Add comment or attachments" title="Add comment or attachments">
                   <span class="expected-answer-toggle-btn__icon">
                     <img src="https://acreation.co.za/lendorainspired/Icons/comment.svg" alt="" class="meta-toggle__icon">
                   </span>
@@ -457,7 +464,7 @@
                   <label class="review-action-check">
                     <input type="checkbox">
                     <span>Mark for Action</span>
-                  </label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select>
+                  </label><select class="review-action-type-select review-action-type-select--email" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select>
 
                   <button type="button" class="review-action-btn">Take Action</button>
                 </div>
@@ -493,7 +500,7 @@
               </div>
 
               <div class="review-summary-field-row__controls">
-                <button type="button" id="reviewSummaryCityEvidenceToggle" class="expected-answer-toggle-btn" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewSummaryCityEvidence" aria-label="Add comment or attachments">
+                <button type="button" id="reviewSummaryCityEvidenceToggle" class="expected-answer-toggle-btn" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewSummaryCityEvidence" aria-label="Add comment or attachments" title="Add comment or attachments">
                   <span class="expected-answer-toggle-btn__icon">
                     <img src="https://acreation.co.za/lendorainspired/Icons/comment.svg" alt="" class="meta-toggle__icon">
                   </span>
@@ -514,7 +521,7 @@
                   <label class="review-action-check">
                     <input type="checkbox">
                     <span>Mark for Action</span>
-                  </label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select>
+                  </label><select class="review-action-type-select review-action-type-select--email" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select>
 
                   <button type="button" class="review-action-btn">Take Action</button>
                 </div>
@@ -550,7 +557,7 @@
               </div>
 
               <div class="review-summary-field-row__controls">
-                <button type="button" id="reviewSummaryStateEvidenceToggle" class="expected-answer-toggle-btn" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewSummaryStateEvidence" aria-label="Add comment or attachments">
+                <button type="button" id="reviewSummaryStateEvidenceToggle" class="expected-answer-toggle-btn" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewSummaryStateEvidence" aria-label="Add comment or attachments" title="Add comment or attachments">
                   <span class="expected-answer-toggle-btn__icon">
                     <img src="https://acreation.co.za/lendorainspired/Icons/comment.svg" alt="" class="meta-toggle__icon">
                   </span>
@@ -571,7 +578,7 @@
                   <label class="review-action-check">
                     <input type="checkbox">
                     <span>Mark for Action</span>
-                  </label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select>
+                  </label><select class="review-action-type-select review-action-type-select--email" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select>
 
                   <button type="button" class="review-action-btn">Take Action</button>
                 </div>
@@ -607,7 +614,7 @@
               </div>
 
               <div class="review-summary-field-row__controls">
-                <button type="button" id="reviewSummaryCountryEvidenceToggle" class="expected-answer-toggle-btn" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewSummaryCountryEvidence" aria-label="Add comment or attachments">
+                <button type="button" id="reviewSummaryCountryEvidenceToggle" class="expected-answer-toggle-btn" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewSummaryCountryEvidence" aria-label="Add comment or attachments" title="Add comment or attachments">
                   <span class="expected-answer-toggle-btn__icon">
                     <img src="https://acreation.co.za/lendorainspired/Icons/comment.svg" alt="" class="meta-toggle__icon">
                   </span>
@@ -628,7 +635,7 @@
                   <label class="review-action-check">
                     <input type="checkbox">
                     <span>Mark for Action</span>
-                  </label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select>
+                  </label><select class="review-action-type-select review-action-type-select--email" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select>
 
                   <button type="button" class="review-action-btn">Take Action</button>
                 </div>
@@ -664,7 +671,7 @@
               </div>
 
               <div class="review-summary-field-row__controls">
-                <button type="button" id="reviewSummaryZipCodeEvidenceToggle" class="expected-answer-toggle-btn" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewSummaryZipCodeEvidence" aria-label="Add comment or attachments">
+                <button type="button" id="reviewSummaryZipCodeEvidenceToggle" class="expected-answer-toggle-btn" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewSummaryZipCodeEvidence" aria-label="Add comment or attachments" title="Add comment or attachments">
                   <span class="expected-answer-toggle-btn__icon">
                     <img src="https://acreation.co.za/lendorainspired/Icons/comment.svg" alt="" class="meta-toggle__icon">
                   </span>
@@ -685,7 +692,7 @@
                   <label class="review-action-check">
                     <input type="checkbox">
                     <span>Mark for Action</span>
-                  </label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select>
+                  </label><select class="review-action-type-select review-action-type-select--email" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select>
 
                   <button type="button" class="review-action-btn">Take Action</button>
                 </div>
@@ -721,7 +728,7 @@
               </div>
 
               <div class="review-summary-field-row__controls">
-                <button type="button" id="reviewSummaryPropertyStreetAddressEvidenceToggle" class="expected-answer-toggle-btn" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewSummaryPropertyStreetAddressEvidence" aria-label="Add comment or attachments">
+                <button type="button" id="reviewSummaryPropertyStreetAddressEvidenceToggle" class="expected-answer-toggle-btn" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewSummaryPropertyStreetAddressEvidence" aria-label="Add comment or attachments" title="Add comment or attachments">
                   <span class="expected-answer-toggle-btn__icon">
                     <img src="https://acreation.co.za/lendorainspired/Icons/comment.svg" alt="" class="meta-toggle__icon">
                   </span>
@@ -742,7 +749,7 @@
                   <label class="review-action-check">
                     <input type="checkbox">
                     <span>Mark for Action</span>
-                  </label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select>
+                  </label><select class="review-action-type-select review-action-type-select--email" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select>
 
                   <button type="button" class="review-action-btn">Take Action</button>
                 </div>
@@ -780,7 +787,7 @@
               </div>
 
               <div class="review-summary-field-row__controls">
-                <button type="button" id="reviewSummaryDateOfBirthEvidenceToggle" class="expected-answer-toggle-btn" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewSummaryDateOfBirthEvidence" aria-label="Add comment or attachments">
+                <button type="button" id="reviewSummaryDateOfBirthEvidenceToggle" class="expected-answer-toggle-btn" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewSummaryDateOfBirthEvidence" aria-label="Add comment or attachments" title="Add comment or attachments">
                   <span class="expected-answer-toggle-btn__icon">
                     <img src="https://acreation.co.za/lendorainspired/Icons/comment.svg" alt="" class="meta-toggle__icon">
                   </span>
@@ -801,7 +808,7 @@
                   <label class="review-action-check">
                     <input type="checkbox">
                     <span>Mark for Action</span>
-                  </label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select>
+                  </label><select class="review-action-type-select review-action-type-select--email" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select>
 
                   <button type="button" class="review-action-btn">Take Action</button>
                 </div>
@@ -836,7 +843,7 @@
               </div>
 
               <div class="review-summary-field-row__controls">
-                <button type="button" id="reviewSummaryHobbiesEvidenceToggle" class="expected-answer-toggle-btn" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewSummaryHobbiesEvidence" aria-label="Add comment or attachments">
+                <button type="button" id="reviewSummaryHobbiesEvidenceToggle" class="expected-answer-toggle-btn" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewSummaryHobbiesEvidence" aria-label="Add comment or attachments" title="Add comment or attachments">
                   <span class="expected-answer-toggle-btn__icon">
                     <img src="https://acreation.co.za/lendorainspired/Icons/comment.svg" alt="" class="meta-toggle__icon">
                   </span>
@@ -857,7 +864,7 @@
                   <label class="review-action-check">
                     <input type="checkbox">
                     <span>Mark for Action</span>
-                  </label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select>
+                  </label><select class="review-action-type-select review-action-type-select--email" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select>
 
                   <button type="button" class="review-action-btn">Take Action</button>
                 </div>
@@ -897,7 +904,7 @@
 
       <!--======================================== Address START ========================================-->
       <!------------------------------------------ Address CORRECT Opion 1-->
-      <div class="question-block">
+      <div class="question-block question-block--action-required">
         <div class="question-header">
           <div class="question-number">1.</div>
           <div class="question-text">Address Only. (when the answer is matching)</div>
@@ -939,12 +946,12 @@
             <div class="expected-answer-status-wrap">
               <div class="expected-answer-status-row expected-answer-status-row--with-actions">
 
-                <button type="button" class="expected-answer-toggle-btn expected-answer-toggle-btn--match" data-expected-answer-toggle="" data-prominent-tooltip="View the expected answer configuration for this matching answer">
+                <button type="button" class="expected-answer-toggle-btn expected-answer-toggle-btn--match" data-expected-answer-toggle="" data-prominent-tooltip="View the expected answer configuration for this matching answer" aria-label="View expected answer configuration for this correct answer">
                   <span class="expected-answer-toggle-btn__icon">✓</span>
                   <span class="expected-answer-toggle-btn__arrow"></span>
                 </button>
 
-                <button type="button" id="reviewAddressCorrectEvidenceToggle" class="expected-answer-toggle-btn" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewAddressCorrectEvidence" aria-label="Add comment or attachments" data-prominent-tooltip="Add or view notes and supporting documents">
+                <button type="button" id="reviewAddressCorrectEvidenceToggle" class="expected-answer-toggle-btn" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewAddressCorrectEvidence" aria-label="Add comment or attachments" data-prominent-tooltip="Add or view notes and supporting documents" title="Add comment or attachments">
                   <span class="expected-answer-toggle-btn__icon">
                     <img src="https://acreation.co.za/lendorainspired/Icons/comment.svg" alt="" class="meta-toggle__icon">
                   </span>
@@ -962,7 +969,7 @@
                     <span>Disapprove</span>
                   </label>
 
-                  <label class="review-action-check" data-prominent-tooltip="Mark this answer for follow-up action"><input type="checkbox"><span>Mark for Action</span></label><select class="review-action-type-select" aria-label="Mark for action type" data-prominent-tooltip="Choose the follow-up type: Email, PT, or Standard Plan"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn" data-prominent-tooltip="Open the action editor for this answer">
+                  <label class="review-action-check" data-prominent-tooltip="Mark this answer for follow-up action"><input type="checkbox"><span>Mark for Action</span></label><select class="review-action-type-select review-action-type-select--email" aria-label="Mark for action type" data-prominent-tooltip="Choose the follow-up type: Email, PT, or Standard Plan"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn" data-prominent-tooltip="Open the action editor for this answer">
                     Take Action
                   </button>
                 </div>
@@ -1081,12 +1088,12 @@
               <div class="expected-answer-status-wrap">
                 <div class="expected-answer-status-row expected-answer-status-row--with-actions">
 
-                  <button type="button" class="expected-answer-toggle-btn expected-answer-toggle-btn--mismatch" data-expected-answer-toggle="" data-prominent-tooltip="View why this answer does not match the expected configuration">
+                  <button type="button" class="expected-answer-toggle-btn expected-answer-toggle-btn--mismatch" data-expected-answer-toggle="" data-prominent-tooltip="View why this answer does not match the expected configuration" aria-label="View expected answer configuration for this incorrect answer">
                     <span class="expected-answer-toggle-btn__icon">!</span>
                     <span class="expected-answer-toggle-btn__arrow"></span>
                   </button>
 
-                  <button type="button" id="reviewAddressIncorrectEvidenceToggle" class="expected-answer-toggle-btn" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewAddressIncorrectEvidence" aria-label="Add comment or attachments" data-prominent-tooltip="Add or view notes and supporting documents">
+                  <button type="button" id="reviewAddressIncorrectEvidenceToggle" class="expected-answer-toggle-btn" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewAddressIncorrectEvidence" aria-label="Add comment or attachments" data-prominent-tooltip="Add or view notes and supporting documents" title="Add comment or attachments">
                     <span class="expected-answer-toggle-btn__icon">
                       <img src="https://acreation.co.za/lendorainspired/Icons/comment.svg" alt="" class="meta-toggle__icon">
                     </span>
@@ -1104,7 +1111,7 @@
                       <span>Disapprove</span>
                     </label>
 
-                    <label class="review-action-check" data-prominent-tooltip="Mark this answer for follow-up action"><input type="checkbox"><span>Mark for Action</span></label><select class="review-action-type-select" aria-label="Mark for action type" data-prominent-tooltip="Choose the follow-up type: Email, PT, or Standard Plan"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn" data-prominent-tooltip="Open the action editor for this answer">
+                    <label class="review-action-check" data-prominent-tooltip="Mark this answer for follow-up action"><input type="checkbox"><span>Mark for Action</span></label><select class="review-action-type-select review-action-type-select--email" aria-label="Mark for action type" data-prominent-tooltip="Choose the follow-up type: Email, PT, or Standard Plan"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn" data-prominent-tooltip="Open the action editor for this answer">
                       Take Action
                     </button>
                   </div>
@@ -1184,7 +1191,7 @@
 
       <!--======================================== Calculated START ========================================-->
       <!------------------------------------------ Calculated CORRECT Opion 1-->
-      <div class="question-block">
+      <div class="question-block question-block--action-required">
         <div class="question-header">
           <div class="question-number">2.</div>
           <div class="question-text">Calculated (when the answer is matching)</div>
@@ -1201,10 +1208,10 @@
                 <div class="expected-answer-status-row expected-answer-status-row--with-actions">
                   
 
-                  <button type="button" class="expected-answer-toggle-btn expected-answer-toggle-btn--match" data-expected-answer-toggle="">
+                  <button type="button" class="expected-answer-toggle-btn expected-answer-toggle-btn--match" data-expected-answer-toggle="" title="View expected answer configuration for this correct answer" aria-label="View expected answer configuration for this correct answer">
                     <span class="expected-answer-toggle-btn__icon">✓</span>
                     <span class="expected-answer-toggle-btn__arrow"></span>
-                  </button><button type="button" id="reviewCalculatedCorrectEvidenceToggle" class="expected-answer-toggle-btn review-evidence-toggle-btn--has-content" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewCalculatedCorrectEvidence" aria-label="Show comment and attachments">
+                  </button><button type="button" id="reviewCalculatedCorrectEvidenceToggle" class="expected-answer-toggle-btn review-evidence-toggle-btn--has-content" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewCalculatedCorrectEvidence" aria-label="Show comment and attachments" title="View comment and attachments">
     <span class="expected-answer-toggle-btn__icon"><img src="https://acreation.co.za/lendorainspired/Icons/comment.svg" alt="" class="meta-toggle__icon"></span>
     <span class="expected-answer-toggle-btn__arrow"></span>
   </button>
@@ -1213,7 +1220,7 @@
                 <div class="review-actions review-actions--inline">
     <label class="review-action-check"><input type="radio" name="reviewDecision15" value="approve"><span>Approve</span></label>
     <label class="review-action-check"><input type="radio" name="reviewDecision15" value="disapprove"><span>Disapprove</span></label>
-    <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">Take Action</button>
+    <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><select class="review-action-type-select review-action-type-select--email" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">Take Action</button>
   </div>
   <button type="button" class="expected-answer-toggle-btn action-history-toggle-btn" data-action-history-toggle="" aria-expanded="false" aria-controls="actionHistoryCalculatedCorrect" aria-label="View previous action details" title="View previous action details"><span class="expected-answer-toggle-btn__icon"><img src="https://acreation.co.za/lendorainspired/Icons/4%20Actions/actions-inactive.svg" alt="" class="meta-toggle__icon"></span><span class="expected-answer-toggle-btn__arrow"></span></button></div><div class="action-history-panel" id="actionHistoryCalculatedCorrect" hidden=""><div class="action-history-panel__title">Production Task</div>
   <div class="action-history-panel__content">ID: <a href="#">#4A8-876</a><br>Owner: [Meir]<br>Performer: [Ana]<br>Target Date: 20 Aug 2026<br>Subject: Please review<br>Sent by Meir Ezra on 14 May 2026 14:12</div></div>
@@ -1287,10 +1294,10 @@
                 <div class="expected-answer-status-row expected-answer-status-row--with-actions">
                   
 
-                  <button type="button" class="expected-answer-toggle-btn expected-answer-toggle-btn--mismatch" data-expected-answer-toggle="">
+                  <button type="button" class="expected-answer-toggle-btn expected-answer-toggle-btn--mismatch" data-expected-answer-toggle="" title="View expected answer configuration for this incorrect answer" aria-label="View expected answer configuration for this incorrect answer">
                     <span class="expected-answer-toggle-btn__icon">!</span>
                     <span class="expected-answer-toggle-btn__arrow"></span>
-                  </button><button type="button" id="reviewCalculatedIncorrectEvidenceToggle" class="expected-answer-toggle-btn" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewCalculatedIncorrectEvidence" aria-label="Add comment or attachments">
+                  </button><button type="button" id="reviewCalculatedIncorrectEvidenceToggle" class="expected-answer-toggle-btn" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewCalculatedIncorrectEvidence" aria-label="Add comment or attachments" title="Add comment or attachments">
     <span class="expected-answer-toggle-btn__icon"><img src="https://acreation.co.za/lendorainspired/Icons/comment.svg" alt="" class="meta-toggle__icon"></span>
     <span class="expected-answer-toggle-btn__arrow"></span>
   </button>
@@ -1298,7 +1305,7 @@
                 <div class="review-actions review-actions--inline">
     <label class="review-action-check"><input type="radio" name="reviewDecision16" value="approve"><span>Approve</span></label>
     <label class="review-action-check"><input type="radio" name="reviewDecision16" value="disapprove"><span>Disapprove</span></label>
-    <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">Take Action</button>
+    <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><select class="review-action-type-select review-action-type-select--email" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">Take Action</button>
   </div>
   </div>
 
@@ -1377,10 +1384,10 @@
                 <div class="expected-answer-status-row expected-answer-status-row--with-actions">
                   
 
-                  <button type="button" class="expected-answer-toggle-btn expected-answer-toggle-btn--match" data-expected-answer-toggle="">
+                  <button type="button" class="expected-answer-toggle-btn expected-answer-toggle-btn--match" data-expected-answer-toggle="" title="View expected answer configuration for this correct answer" aria-label="View expected answer configuration for this correct answer">
                     <span class="expected-answer-toggle-btn__icon">✓</span>
                     <span class="expected-answer-toggle-btn__arrow"></span>
-                  </button><button type="button" id="reviewCheckboxCorrectEvidenceToggle" class="expected-answer-toggle-btn" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewCheckboxCorrectEvidence" aria-label="Add comment or attachments">
+                  </button><button type="button" id="reviewCheckboxCorrectEvidenceToggle" class="expected-answer-toggle-btn" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewCheckboxCorrectEvidence" aria-label="Add comment or attachments" title="Add comment or attachments">
     <span class="expected-answer-toggle-btn__icon"><img src="https://acreation.co.za/lendorainspired/Icons/comment.svg" alt="" class="meta-toggle__icon"></span>
     <span class="expected-answer-toggle-btn__arrow"></span>
   </button>
@@ -1397,7 +1404,7 @@
                 <span>Disapprove</span>
               </label>
 
-              <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">
+              <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><select class="review-action-type-select review-action-type-select--email" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">
                 Take Action
               </button>
             </div>
@@ -1466,10 +1473,10 @@
                 <div class="expected-answer-status-row expected-answer-status-row--with-actions">
                   
 
-                  <button type="button" class="expected-answer-toggle-btn expected-answer-toggle-btn--mismatch" data-expected-answer-toggle="">
+                  <button type="button" class="expected-answer-toggle-btn expected-answer-toggle-btn--mismatch" data-expected-answer-toggle="" title="View expected answer configuration for this incorrect answer" aria-label="View expected answer configuration for this incorrect answer">
                     <span class="expected-answer-toggle-btn__icon">!</span>
                     <span class="expected-answer-toggle-btn__arrow"></span>
-                  </button><button type="button" id="reviewCheckboxIncorrectEvidenceToggle" class="expected-answer-toggle-btn review-evidence-toggle-btn--has-content" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewCheckboxIncorrectEvidence" aria-label="Show comment and attachments">
+                  </button><button type="button" id="reviewCheckboxIncorrectEvidenceToggle" class="expected-answer-toggle-btn review-evidence-toggle-btn--has-content" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewCheckboxIncorrectEvidence" aria-label="Show comment and attachments" title="View comment and attachments">
     <span class="expected-answer-toggle-btn__icon"><img src="https://acreation.co.za/lendorainspired/Icons/comment.svg" alt="" class="meta-toggle__icon"></span>
     <span class="expected-answer-toggle-btn__arrow"></span>
   </button>
@@ -1485,7 +1492,7 @@
                 <span>Disapprove</span>
               </label>
 
-              <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">
+              <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><select class="review-action-type-select review-action-type-select--email" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">
                 Take Action
               </button>
             </div>
@@ -1559,10 +1566,10 @@
                 <div class="expected-answer-status-row expected-answer-status-row--with-actions">
                   
 
-                  <button type="button" class="expected-answer-toggle-btn expected-answer-toggle-btn--match" data-expected-answer-toggle="">
+                  <button type="button" class="expected-answer-toggle-btn expected-answer-toggle-btn--match" data-expected-answer-toggle="" title="View expected answer configuration for this correct answer" aria-label="View expected answer configuration for this correct answer">
                     <span class="expected-answer-toggle-btn__icon">✓</span>
                     <span class="expected-answer-toggle-btn__arrow"></span>
-                  </button><button type="button" id="reviewChecklistCorrectEvidenceToggle" class="expected-answer-toggle-btn" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewChecklistCorrectEvidence" aria-label="Add comment or attachments">
+                  </button><button type="button" id="reviewChecklistCorrectEvidenceToggle" class="expected-answer-toggle-btn" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewChecklistCorrectEvidence" aria-label="Add comment or attachments" title="Add comment or attachments">
     <span class="expected-answer-toggle-btn__icon"><img src="https://acreation.co.za/lendorainspired/Icons/comment.svg" alt="" class="meta-toggle__icon"></span>
     <span class="expected-answer-toggle-btn__arrow"></span>
   </button>
@@ -1579,7 +1586,7 @@
                 <span>Disapprove</span>
               </label>
 
-              <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">
+              <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><select class="review-action-type-select review-action-type-select--email" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">
                 Take Action
               </button>
             </div>
@@ -1649,10 +1656,10 @@
                 <div class="expected-answer-status-row expected-answer-status-row--with-actions">
                   
 
-                  <button type="button" class="expected-answer-toggle-btn expected-answer-toggle-btn--mismatch" data-expected-answer-toggle="">
+                  <button type="button" class="expected-answer-toggle-btn expected-answer-toggle-btn--mismatch" data-expected-answer-toggle="" title="View expected answer configuration for this incorrect answer" aria-label="View expected answer configuration for this incorrect answer">
                     <span class="expected-answer-toggle-btn__icon">!</span>
                     <span class="expected-answer-toggle-btn__arrow"></span>
-                  </button><button type="button" id="reviewChecklistIncorrectEvidenceToggle" class="expected-answer-toggle-btn" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewChecklistIncorrectEvidence" aria-label="Add comment or attachments">
+                  </button><button type="button" id="reviewChecklistIncorrectEvidenceToggle" class="expected-answer-toggle-btn" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewChecklistIncorrectEvidence" aria-label="Add comment or attachments" title="Add comment or attachments">
     <span class="expected-answer-toggle-btn__icon"><img src="https://acreation.co.za/lendorainspired/Icons/comment.svg" alt="" class="meta-toggle__icon"></span>
     <span class="expected-answer-toggle-btn__arrow"></span>
   </button>
@@ -1668,7 +1675,7 @@
                 <span>Disapprove</span>
               </label>
 
-              <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">
+              <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><select class="review-action-type-select review-action-type-select--email" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">
                 Take Action
               </button>
             </div>
@@ -1742,7 +1749,7 @@
             <label class="review-action-check">
               <input type="checkbox" data-bulk-review-mark="">
               <span>Mark for Action</span>
-            </label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select>
+            </label><select class="review-action-type-select review-action-type-select--email" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select>
           
             <button type="button" class="review-action-btn">
               Take Action on Question
@@ -1762,12 +1769,12 @@
             <div class="multi-answer-review-item__review">
               <div class="expected-answer-status-wrap">
                 <div class="expected-answer-status-row expected-answer-status-row--with-actions">
-                  <button type="button" class="expected-answer-toggle-btn expected-answer-toggle-btn--match" data-expected-answer-toggle="">
+                  <button type="button" class="expected-answer-toggle-btn expected-answer-toggle-btn--match" data-expected-answer-toggle="" title="View expected answer configuration for this correct answer" aria-label="View expected answer configuration for this correct answer">
                     <span class="expected-answer-toggle-btn__icon">✓</span>
                     <span class="expected-answer-toggle-btn__arrow"></span>
                   </button>
 
-                  <button type="button" id="reviewDropdownOption1EvidenceToggle" class="expected-answer-toggle-btn" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewDropdownOption1Evidence" aria-label="Add comment or attachments">
+                  <button type="button" id="reviewDropdownOption1EvidenceToggle" class="expected-answer-toggle-btn" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewDropdownOption1Evidence" aria-label="Add comment or attachments" title="Add comment or attachments">
                     <span class="expected-answer-toggle-btn__icon">
                       <img src="https://acreation.co.za/lendorainspired/Icons/comment.svg" alt="" class="meta-toggle__icon">
                     </span>
@@ -1785,7 +1792,7 @@
                         <span>Disapprove</span>
                       </label>
                     
-                      <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">Take Action</button>
+                      <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><select class="review-action-type-select review-action-type-select--email" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">Take Action</button>
                     </div>
 
                 </div>
@@ -1832,12 +1839,12 @@
             <div class="multi-answer-review-item__review">
               <div class="expected-answer-status-wrap">
                 <div class="expected-answer-status-row expected-answer-status-row--with-actions">
-                  <button type="button" class="expected-answer-toggle-btn expected-answer-toggle-btn--match" data-expected-answer-toggle="">
+                  <button type="button" class="expected-answer-toggle-btn expected-answer-toggle-btn--match" data-expected-answer-toggle="" title="View expected answer configuration for this correct answer" aria-label="View expected answer configuration for this correct answer">
                     <span class="expected-answer-toggle-btn__icon">✓</span>
                     <span class="expected-answer-toggle-btn__arrow"></span>
                   </button>
 
-                  <button type="button" id="reviewDropdownOption2EvidenceToggle" class="expected-answer-toggle-btn" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewDropdownOption2Evidence" aria-label="Add comment or attachments">
+                  <button type="button" id="reviewDropdownOption2EvidenceToggle" class="expected-answer-toggle-btn" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewDropdownOption2Evidence" aria-label="Add comment or attachments" title="Add comment or attachments">
                     <span class="expected-answer-toggle-btn__icon">
                       <img src="https://acreation.co.za/lendorainspired/Icons/comment.svg" alt="" class="meta-toggle__icon">
                     </span>
@@ -1855,7 +1862,7 @@
                         <span>Disapprove</span>
                       </label>
                     
-                      <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">Take Action</button>
+                      <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><select class="review-action-type-select review-action-type-select--email" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">Take Action</button>
                     </div>
 
                 </div>
@@ -1902,12 +1909,12 @@
             <div class="multi-answer-review-item__review">
               <div class="expected-answer-status-wrap">
                 <div class="expected-answer-status-row expected-answer-status-row--with-actions">
-                  <button type="button" class="expected-answer-toggle-btn expected-answer-toggle-btn--match" data-expected-answer-toggle="">
+                  <button type="button" class="expected-answer-toggle-btn expected-answer-toggle-btn--match" data-expected-answer-toggle="" title="View expected answer configuration for this correct answer" aria-label="View expected answer configuration for this correct answer">
                     <span class="expected-answer-toggle-btn__icon">✓</span>
                     <span class="expected-answer-toggle-btn__arrow"></span>
                   </button>
 
-                  <button type="button" id="reviewDropdownOption3EvidenceToggle" class="expected-answer-toggle-btn" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewDropdownOption3Evidence" aria-label="Add comment or attachments">
+                  <button type="button" id="reviewDropdownOption3EvidenceToggle" class="expected-answer-toggle-btn" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewDropdownOption3Evidence" aria-label="Add comment or attachments" title="Add comment or attachments">
                     <span class="expected-answer-toggle-btn__icon">
                       <img src="https://acreation.co.za/lendorainspired/Icons/comment.svg" alt="" class="meta-toggle__icon">
                     </span>
@@ -1925,7 +1932,7 @@
                         <span>Disapprove</span>
                       </label>
                     
-                      <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">Take Action</button>
+                      <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><select class="review-action-type-select review-action-type-select--email" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">Take Action</button>
                     </div>
 
                 </div>
@@ -1972,12 +1979,12 @@
             <div class="multi-answer-review-item__review">
               <div class="expected-answer-status-wrap">
                 <div class="expected-answer-status-row expected-answer-status-row--with-actions">
-                  <button type="button" class="expected-answer-toggle-btn expected-answer-toggle-btn--mismatch" data-expected-answer-toggle="">
+                  <button type="button" class="expected-answer-toggle-btn expected-answer-toggle-btn--mismatch" data-expected-answer-toggle="" title="View expected answer configuration for this incorrect answer" aria-label="View expected answer configuration for this incorrect answer">
                     <span class="expected-answer-toggle-btn__icon">!</span>
                     <span class="expected-answer-toggle-btn__arrow"></span>
                   </button>
 
-                  <button type="button" id="reviewDropdownOption4EvidenceToggle" class="expected-answer-toggle-btn" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewDropdownOption4Evidence" aria-label="Add comment or attachments">
+                  <button type="button" id="reviewDropdownOption4EvidenceToggle" class="expected-answer-toggle-btn" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewDropdownOption4Evidence" aria-label="Add comment or attachments" title="Add comment or attachments">
                     <span class="expected-answer-toggle-btn__icon">
                       <img src="https://acreation.co.za/lendorainspired/Icons/comment.svg" alt="" class="meta-toggle__icon">
                     </span>
@@ -1995,7 +2002,7 @@
                         <span>Disapprove</span>
                       </label>
                     
-                      <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">Take Action</button>
+                      <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><select class="review-action-type-select review-action-type-select--email" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">Take Action</button>
                     </div>
 
                 </div>
@@ -2035,12 +2042,12 @@
 
   <div class="expected-answer-status-wrap multi-answer-question-summary">
               <div class="expected-answer-status-row expected-answer-status-row--with-actions">
-                <button type="button" class="expected-answer-toggle-btn expected-answer-toggle-btn--mismatch" data-expected-answer-toggle="">
+                <button type="button" class="expected-answer-toggle-btn expected-answer-toggle-btn--mismatch" data-expected-answer-toggle="" title="View expected answer configuration for this incorrect answer" aria-label="View expected answer configuration for this incorrect answer">
                   <span class="expected-answer-toggle-btn__icon">!</span>
                   <span class="expected-answer-toggle-btn__arrow"></span>
                 </button>
           
-                <button type="button" id="reviewDropdownMultiSelectEvidenceToggle" class="expected-answer-toggle-btn" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewDropdownMultiSelectEvidence" aria-label="Add comment or attachments">
+                <button type="button" id="reviewDropdownMultiSelectEvidenceToggle" class="expected-answer-toggle-btn" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewDropdownMultiSelectEvidence" aria-label="Add comment or attachments" title="Add comment or attachments">
                   <span class="expected-answer-toggle-btn__icon">
                     <img src="https://acreation.co.za/lendorainspired/Icons/comment.svg" alt="" class="meta-toggle__icon">
                   </span>
@@ -2058,7 +2065,7 @@
                             <span>Disapprove</span>
                           </label>
                         
-                          <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">Take Action</button>
+                          <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><select class="review-action-type-select review-action-type-select--email" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">Take Action</button>
                         </div>
           
               </div>
@@ -2122,7 +2129,7 @@
             <label class="review-action-check">
               <input type="checkbox" data-bulk-review-mark="">
               <span>Mark for Action</span>
-            </label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select>
+            </label><select class="review-action-type-select review-action-type-select--email" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select>
           
             <button type="button" class="review-action-btn">
               Take Action on Question
@@ -2140,12 +2147,12 @@
             <div class="multi-answer-review-item__review">
               <div class="expected-answer-status-wrap">
                 <div class="expected-answer-status-row expected-answer-status-row--with-actions">
-                  <button type="button" class="expected-answer-toggle-btn expected-answer-toggle-btn--match" data-expected-answer-toggle="">
+                  <button type="button" class="expected-answer-toggle-btn expected-answer-toggle-btn--match" data-expected-answer-toggle="" title="View expected answer configuration for this correct answer" aria-label="View expected answer configuration for this correct answer">
                     <span class="expected-answer-toggle-btn__icon">✓</span>
                     <span class="expected-answer-toggle-btn__arrow"></span>
                   </button>
 
-                  <button type="button" id="reviewMultipleAnswer1EvidenceToggle" class="expected-answer-toggle-btn" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewMultipleAnswer1Evidence" aria-label="Add comment or attachments">
+                  <button type="button" id="reviewMultipleAnswer1EvidenceToggle" class="expected-answer-toggle-btn" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewMultipleAnswer1Evidence" aria-label="Add comment or attachments" title="Add comment or attachments">
                     <span class="expected-answer-toggle-btn__icon">
                       <img src="https://acreation.co.za/lendorainspired/Icons/comment.svg" alt="" class="meta-toggle__icon">
                     </span>
@@ -2163,7 +2170,7 @@
                         <span>Disapprove</span>
                       </label>
                     
-                      <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">Take Action</button>
+                      <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><select class="review-action-type-select review-action-type-select--email" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">Take Action</button>
                     </div>
 
                 </div>
@@ -2208,12 +2215,12 @@
             <div class="multi-answer-review-item__review">
               <div class="expected-answer-status-wrap">
                 <div class="expected-answer-status-row expected-answer-status-row--with-actions">
-                  <button type="button" class="expected-answer-toggle-btn expected-answer-toggle-btn--match" data-expected-answer-toggle="">
+                  <button type="button" class="expected-answer-toggle-btn expected-answer-toggle-btn--match" data-expected-answer-toggle="" title="View expected answer configuration for this correct answer" aria-label="View expected answer configuration for this correct answer">
                     <span class="expected-answer-toggle-btn__icon">✓</span>
                     <span class="expected-answer-toggle-btn__arrow"></span>
                   </button>
 
-                  <button type="button" id="reviewMultipleAnswer2EvidenceToggle" class="expected-answer-toggle-btn" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewMultipleAnswer2Evidence" aria-label="Add comment or attachments">
+                  <button type="button" id="reviewMultipleAnswer2EvidenceToggle" class="expected-answer-toggle-btn" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewMultipleAnswer2Evidence" aria-label="Add comment or attachments" title="Add comment or attachments">
                     <span class="expected-answer-toggle-btn__icon">
                       <img src="https://acreation.co.za/lendorainspired/Icons/comment.svg" alt="" class="meta-toggle__icon">
                     </span>
@@ -2231,7 +2238,7 @@
                         <span>Disapprove</span>
                       </label>
                     
-                      <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">Take Action</button>
+                      <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><select class="review-action-type-select review-action-type-select--email" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">Take Action</button>
                     </div>
 
                 </div>
@@ -2276,12 +2283,12 @@
             <div class="multi-answer-review-item__review">
               <div class="expected-answer-status-wrap">
                 <div class="expected-answer-status-row expected-answer-status-row--with-actions">
-                  <button type="button" class="expected-answer-toggle-btn expected-answer-toggle-btn--mismatch" data-expected-answer-toggle="">
+                  <button type="button" class="expected-answer-toggle-btn expected-answer-toggle-btn--mismatch" data-expected-answer-toggle="" title="View expected answer configuration for this incorrect answer" aria-label="View expected answer configuration for this incorrect answer">
                     <span class="expected-answer-toggle-btn__icon">!</span>
                     <span class="expected-answer-toggle-btn__arrow"></span>
                   </button>
 
-                  <button type="button" id="reviewMultipleAnswer3EvidenceToggle" class="expected-answer-toggle-btn" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewMultipleAnswer3Evidence" aria-label="Add comment or attachments">
+                  <button type="button" id="reviewMultipleAnswer3EvidenceToggle" class="expected-answer-toggle-btn" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewMultipleAnswer3Evidence" aria-label="Add comment or attachments" title="Add comment or attachments">
                     <span class="expected-answer-toggle-btn__icon">
                       <img src="https://acreation.co.za/lendorainspired/Icons/comment.svg" alt="" class="meta-toggle__icon">
                     </span>
@@ -2299,7 +2306,7 @@
                         <span>Disapprove</span>
                       </label>
                     
-                      <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">Take Action</button>
+                      <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><select class="review-action-type-select review-action-type-select--email" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">Take Action</button>
                     </div>
 
                 </div>
@@ -2344,12 +2351,12 @@
             <div class="multi-answer-review-item__review">
               <div class="expected-answer-status-wrap">
                 <div class="expected-answer-status-row expected-answer-status-row--with-actions">
-                  <button type="button" class="expected-answer-toggle-btn expected-answer-toggle-btn--mismatch" data-expected-answer-toggle="">
+                  <button type="button" class="expected-answer-toggle-btn expected-answer-toggle-btn--mismatch" data-expected-answer-toggle="" title="View expected answer configuration for this incorrect answer" aria-label="View expected answer configuration for this incorrect answer">
                     <span class="expected-answer-toggle-btn__icon">!</span>
                     <span class="expected-answer-toggle-btn__arrow"></span>
                   </button>
 
-                  <button type="button" id="reviewMultipleAnswer4EvidenceToggle" class="expected-answer-toggle-btn" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewMultipleAnswer4Evidence" aria-label="Add comment or attachments">
+                  <button type="button" id="reviewMultipleAnswer4EvidenceToggle" class="expected-answer-toggle-btn" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewMultipleAnswer4Evidence" aria-label="Add comment or attachments" title="Add comment or attachments">
                     <span class="expected-answer-toggle-btn__icon">
                       <img src="https://acreation.co.za/lendorainspired/Icons/comment.svg" alt="" class="meta-toggle__icon">
                     </span>
@@ -2367,7 +2374,7 @@
                         <span>Disapprove</span>
                       </label>
                     
-                      <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">Take Action</button>
+                      <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><select class="review-action-type-select review-action-type-select--email" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">Take Action</button>
                     </div>
 
                 </div>
@@ -2407,12 +2414,12 @@
 
   <div class="expected-answer-status-wrap multi-answer-question-summary">
               <div class="expected-answer-status-row expected-answer-status-row--with-actions">
-                <button type="button" class="expected-answer-toggle-btn expected-answer-toggle-btn--mismatch" data-expected-answer-toggle="">
+                <button type="button" class="expected-answer-toggle-btn expected-answer-toggle-btn--mismatch" data-expected-answer-toggle="" title="View expected answer configuration for this incorrect answer" aria-label="View expected answer configuration for this incorrect answer">
                   <span class="expected-answer-toggle-btn__icon">!</span>
                   <span class="expected-answer-toggle-btn__arrow"></span>
                 </button>
           
-                <button type="button" id="reviewMultipleAnswersEvidenceToggle" class="expected-answer-toggle-btn" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewMultipleAnswersEvidence" aria-label="Add comment or attachments">
+                <button type="button" id="reviewMultipleAnswersEvidenceToggle" class="expected-answer-toggle-btn" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewMultipleAnswersEvidence" aria-label="Add comment or attachments" title="Add comment or attachments">
                   <span class="expected-answer-toggle-btn__icon">
                     <img src="https://acreation.co.za/lendorainspired/Icons/comment.svg" alt="" class="meta-toggle__icon">
                   </span>
@@ -2430,7 +2437,7 @@
                             <span>Disapprove</span>
                           </label>
                         
-                          <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">Take Action</button>
+                          <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><select class="review-action-type-select review-action-type-select--email" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">Take Action</button>
                         </div>
           
               </div>
@@ -2491,10 +2498,10 @@
                 <div class="expected-answer-status-row expected-answer-status-row--with-actions">
                   
 
-                  <button type="button" class="expected-answer-toggle-btn expected-answer-toggle-btn--match" data-expected-answer-toggle="">
+                  <button type="button" class="expected-answer-toggle-btn expected-answer-toggle-btn--match" data-expected-answer-toggle="" title="View expected answer configuration for this correct answer" aria-label="View expected answer configuration for this correct answer">
                     <span class="expected-answer-toggle-btn__icon">✓</span>
                     <span class="expected-answer-toggle-btn__arrow"></span>
-                  </button><button type="button" id="reviewNumberCorrectEvidenceToggle" class="expected-answer-toggle-btn review-evidence-toggle-btn--has-content" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewNumberCorrectEvidence" aria-label="Show comment and attachments">
+                  </button><button type="button" id="reviewNumberCorrectEvidenceToggle" class="expected-answer-toggle-btn review-evidence-toggle-btn--has-content" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewNumberCorrectEvidence" aria-label="Show comment and attachments" title="View comment and attachments">
     <span class="expected-answer-toggle-btn__icon"><img src="https://acreation.co.za/lendorainspired/Icons/comment.svg" alt="" class="meta-toggle__icon"></span>
     <span class="expected-answer-toggle-btn__arrow"></span>
   </button>
@@ -2510,7 +2517,7 @@
                 <span>Disapprove</span>
               </label>
 
-              <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">
+              <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><select class="review-action-type-select review-action-type-select--email" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">
                 Take Action
               </button>
             </div>
@@ -2584,10 +2591,10 @@
                 <div class="expected-answer-status-row expected-answer-status-row--with-actions">
                   
 
-                  <button type="button" class="expected-answer-toggle-btn expected-answer-toggle-btn--mismatch" data-expected-answer-toggle="">
+                  <button type="button" class="expected-answer-toggle-btn expected-answer-toggle-btn--mismatch" data-expected-answer-toggle="" title="View expected answer configuration for this incorrect answer" aria-label="View expected answer configuration for this incorrect answer">
                     <span class="expected-answer-toggle-btn__icon">!</span>
                     <span class="expected-answer-toggle-btn__arrow"></span>
-                  </button><button type="button" id="reviewNumberIncorrectEvidenceToggle" class="expected-answer-toggle-btn" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewNumberIncorrectEvidence" aria-label="Add comment or attachments">
+                  </button><button type="button" id="reviewNumberIncorrectEvidenceToggle" class="expected-answer-toggle-btn" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewNumberIncorrectEvidence" aria-label="Add comment or attachments" title="Add comment or attachments">
     <span class="expected-answer-toggle-btn__icon"><img src="https://acreation.co.za/lendorainspired/Icons/comment.svg" alt="" class="meta-toggle__icon"></span>
     <span class="expected-answer-toggle-btn__arrow"></span>
   </button>
@@ -2603,7 +2610,7 @@
                 <span>Disapprove</span>
               </label>
 
-              <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">
+              <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><select class="review-action-type-select review-action-type-select--email" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">
                 Take Action
               </button>
             </div>
@@ -2681,10 +2688,10 @@
                 <div class="expected-answer-status-row expected-answer-status-row--with-actions">
                   
 
-                  <button type="button" class="expected-answer-toggle-btn expected-answer-toggle-btn--match" data-expected-answer-toggle="">
+                  <button type="button" class="expected-answer-toggle-btn expected-answer-toggle-btn--match" data-expected-answer-toggle="" title="View expected answer configuration for this correct answer" aria-label="View expected answer configuration for this correct answer">
                     <span class="expected-answer-toggle-btn__icon">✓</span>
                     <span class="expected-answer-toggle-btn__arrow"></span>
-                  </button><button type="button" id="reviewTextCorrectEvidenceToggle" class="expected-answer-toggle-btn" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewTextCorrectEvidence" aria-label="Add comment or attachments">
+                  </button><button type="button" id="reviewTextCorrectEvidenceToggle" class="expected-answer-toggle-btn" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewTextCorrectEvidence" aria-label="Add comment or attachments" title="Add comment or attachments">
     <span class="expected-answer-toggle-btn__icon"><img src="https://acreation.co.za/lendorainspired/Icons/comment.svg" alt="" class="meta-toggle__icon"></span>
     <span class="expected-answer-toggle-btn__arrow"></span>
   </button>
@@ -2700,7 +2707,7 @@
                 <span>Disapprove</span>
               </label>
 
-              <label class="review-action-check"><input type="checkbox" checked=""><span>Mark for Action</span></label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">
+              <label class="review-action-check"><input type="checkbox" checked=""><span>Mark for Action</span></label><select class="review-action-type-select is-visible review-action-type-select--email" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">
                 Take Action
               </button>
             </div>
@@ -2782,10 +2789,10 @@
                 <div class="expected-answer-status-row expected-answer-status-row--with-actions">
                   
 
-                  <button type="button" class="expected-answer-toggle-btn expected-answer-toggle-btn--mismatch" data-expected-answer-toggle="">
+                  <button type="button" class="expected-answer-toggle-btn expected-answer-toggle-btn--mismatch" data-expected-answer-toggle="" title="View expected answer configuration for this incorrect answer" aria-label="View expected answer configuration for this incorrect answer">
                     <span class="expected-answer-toggle-btn__icon">!</span>
                     <span class="expected-answer-toggle-btn__arrow"></span>
-                  </button><button type="button" id="reviewTextIncorrectEvidenceToggle" class="expected-answer-toggle-btn" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewTextIncorrectEvidence" aria-label="Add comment or attachments">
+                  </button><button type="button" id="reviewTextIncorrectEvidenceToggle" class="expected-answer-toggle-btn" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewTextIncorrectEvidence" aria-label="Add comment or attachments" title="Add comment or attachments">
     <span class="expected-answer-toggle-btn__icon"><img src="https://acreation.co.za/lendorainspired/Icons/comment.svg" alt="" class="meta-toggle__icon"></span>
     <span class="expected-answer-toggle-btn__arrow"></span>
   </button>
@@ -2801,7 +2808,7 @@
                 <span>Disapprove</span>
               </label>
 
-              <label class="review-action-check"><input type="checkbox" checked=""><span>Mark for Action</span></label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">
+              <label class="review-action-check"><input type="checkbox" checked=""><span>Mark for Action</span></label><select class="review-action-type-select is-visible review-action-type-select--email" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">
                 Take Action
               </button>
             </div>
@@ -2887,10 +2894,10 @@
                 <div class="expected-answer-status-row expected-answer-status-row--with-actions">
                   
 
-                  <button type="button" class="expected-answer-toggle-btn expected-answer-toggle-btn--match" data-expected-answer-toggle="">
+                  <button type="button" class="expected-answer-toggle-btn expected-answer-toggle-btn--match" data-expected-answer-toggle="" title="View expected answer configuration for this correct answer" aria-label="View expected answer configuration for this correct answer">
                     <span class="expected-answer-toggle-btn__icon">✓</span>
                     <span class="expected-answer-toggle-btn__arrow"></span>
-                  </button><button type="button" id="reviewTimeCorrectEvidenceToggle" class="expected-answer-toggle-btn" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewTimeCorrectEvidence" aria-label="Add comment or attachments">
+                  </button><button type="button" id="reviewTimeCorrectEvidenceToggle" class="expected-answer-toggle-btn" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewTimeCorrectEvidence" aria-label="Add comment or attachments" title="Add comment or attachments">
     <span class="expected-answer-toggle-btn__icon"><img src="https://acreation.co.za/lendorainspired/Icons/comment.svg" alt="" class="meta-toggle__icon"></span>
     <span class="expected-answer-toggle-btn__arrow"></span>
   </button>
@@ -2906,11 +2913,11 @@
                 <span>Disapprove</span>
               </label>
 
-              <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">
+              <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><select class="review-action-type-select review-action-type-select--email" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">
                 Take Action
               </button>
             </div>
-  </div>
+  <button type="button" class="expected-answer-toggle-btn action-history-toggle-btn" data-action-history-toggle="" aria-expanded="false" aria-controls="actionHistoryTimeCorrect" aria-label="View previous action details" title="View previous action details"><span class="expected-answer-toggle-btn__icon"><img src="https://acreation.co.za/lendorainspired/Icons/4%20Actions/actions-inactive.svg" alt="" class="meta-toggle__icon"></span><span class="expected-answer-toggle-btn__arrow"></span></button></div>
 
                 <div class="expected-answer-panel" hidden="">
                   <div class="expected-answer-panel__title">
@@ -2922,7 +2929,7 @@
                     <strong>OR</strong> Between 16:00 and 17:00
                   </div>
                 </div>
-              </div>
+              <div class="action-history-panel" id="actionHistoryTimeCorrect" hidden=""><div class="action-history-panel__title">Email</div><div class="action-history-panel__content">Email sent to applicant<br>Subject: Time confirmation required</div></div></div>
   <div class="review-evidence" id="reviewTimeCorrectEvidence" hidden="">
     <div class="review-evidence__field">
       <label for="reviewTimeCorrectComment">Comment</label>
@@ -2971,10 +2978,10 @@
                 <div class="expected-answer-status-row expected-answer-status-row--with-actions">
                   
 
-                  <button type="button" class="expected-answer-toggle-btn expected-answer-toggle-btn--mismatch" data-expected-answer-toggle="">
+                  <button type="button" class="expected-answer-toggle-btn expected-answer-toggle-btn--mismatch" data-expected-answer-toggle="" title="View expected answer configuration for this incorrect answer" aria-label="View expected answer configuration for this incorrect answer">
                     <span class="expected-answer-toggle-btn__icon">!</span>
                     <span class="expected-answer-toggle-btn__arrow"></span>
-                  </button><button type="button" id="reviewTimeIncorrectEvidenceToggle" class="expected-answer-toggle-btn review-evidence-toggle-btn--has-content" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewTimeIncorrectEvidence" aria-label="Show comment and attachments">
+                  </button><button type="button" id="reviewTimeIncorrectEvidenceToggle" class="expected-answer-toggle-btn review-evidence-toggle-btn--has-content" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewTimeIncorrectEvidence" aria-label="Show comment and attachments" title="View comment and attachments">
     <span class="expected-answer-toggle-btn__icon"><img src="https://acreation.co.za/lendorainspired/Icons/comment.svg" alt="" class="meta-toggle__icon"></span>
     <span class="expected-answer-toggle-btn__arrow"></span>
   </button>
@@ -2990,11 +2997,11 @@
                 <span>Disapprove</span>
               </label>
 
-              <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">
+              <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><select class="review-action-type-select review-action-type-select--email" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">
                 Take Action
               </button>
             </div>
-  </div>
+  <button type="button" class="expected-answer-toggle-btn action-history-toggle-btn" data-action-history-toggle="" aria-expanded="false" aria-controls="actionHistoryTimeIncorrect" aria-label="View previous action details" title="View previous action details"><span class="expected-answer-toggle-btn__icon"><img src="https://acreation.co.za/lendorainspired/Icons/4%20Actions/actions-inactive.svg" alt="" class="meta-toggle__icon"></span><span class="expected-answer-toggle-btn__arrow"></span></button></div>
 
                 <div class="expected-answer-panel" hidden="">
                   <div class="expected-answer-panel__title">
@@ -3006,7 +3013,7 @@
                     <strong>OR</strong> Between 16:00 and 17:00
                   </div>
                 </div>
-              </div>
+              <div class="action-history-panel" id="actionHistoryTimeIncorrect" hidden=""><div class="action-history-panel__title">Production Task</div><div class="action-history-panel__content">PT-1098: Review submitted time<br>Assigned to Operations Team</div></div></div>
   <div class="review-evidence" id="reviewTimeIncorrectEvidence" hidden="">
     <div class="review-evidence__field">
       <label for="reviewTimeIncorrectComment">Comment</label>
@@ -3066,12 +3073,12 @@
               </div>
               <div class="expected-answer-status-wrap">
                 <div class="expected-answer-status-row expected-answer-status-row--with-actions">
-                  <button type="button" class="expected-answer-toggle-btn expected-answer-toggle-btn--match" data-expected-answer-toggle="">
+                  <button type="button" class="expected-answer-toggle-btn expected-answer-toggle-btn--match" data-expected-answer-toggle="" title="View expected answer configuration for this correct answer" aria-label="View expected answer configuration for this correct answer">
                     <span class="expected-answer-toggle-btn__icon">✓</span>
                     <span class="expected-answer-toggle-btn__arrow"></span>
                   </button>
 
-                  <button type="button" id="reviewTimeRangeCorrectEvidenceToggle" class="expected-answer-toggle-btn review-evidence-toggle-btn--has-content" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewTimeRangeCorrectEvidence" aria-label="Show comment and attachments">
+                  <button type="button" id="reviewTimeRangeCorrectEvidenceToggle" class="expected-answer-toggle-btn review-evidence-toggle-btn--has-content" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewTimeRangeCorrectEvidence" aria-label="Show comment and attachments" title="View comment and attachments">
                     <span class="expected-answer-toggle-btn__icon">
                       <img src="https://acreation.co.za/lendorainspired/Icons/comment.svg" alt="" class="meta-toggle__icon">
                     </span>
@@ -3089,7 +3096,7 @@
                       <span>Disapprove</span>
                     </label>
 
-                    <label class="review-action-check"><input type="checkbox" checked=""><span>Mark for Action</span></label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">
+                    <label class="review-action-check"><input type="checkbox" checked=""><span>Mark for Action</span></label><select class="review-action-type-select is-visible review-action-type-select--email" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">
                       Take Action
                     </button>
                   </div>
@@ -3162,12 +3169,12 @@
               </div>
               <div class="expected-answer-status-wrap">
                 <div class="expected-answer-status-row expected-answer-status-row--with-actions">
-                  <button type="button" class="expected-answer-toggle-btn expected-answer-toggle-btn--mismatch" data-expected-answer-toggle="">
+                  <button type="button" class="expected-answer-toggle-btn expected-answer-toggle-btn--mismatch" data-expected-answer-toggle="" title="View expected answer configuration for this incorrect answer" aria-label="View expected answer configuration for this incorrect answer">
                     <span class="expected-answer-toggle-btn__icon">!</span>
                     <span class="expected-answer-toggle-btn__arrow"></span>
                   </button>
 
-                  <button type="button" id="reviewTimeRangeIncorrectEvidenceToggle" class="expected-answer-toggle-btn" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewTimeRangeIncorrectEvidence" aria-label="Add comment or attachments">
+                  <button type="button" id="reviewTimeRangeIncorrectEvidenceToggle" class="expected-answer-toggle-btn" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewTimeRangeIncorrectEvidence" aria-label="Add comment or attachments" title="Add comment or attachments">
                     <span class="expected-answer-toggle-btn__icon">
                       <img src="https://acreation.co.za/lendorainspired/Icons/comment.svg" alt="" class="meta-toggle__icon">
                     </span>
@@ -3185,7 +3192,7 @@
                       <span>Disapprove</span>
                     </label>
 
-                    <label class="review-action-check"><input type="checkbox" checked=""><span>Mark for Action</span></label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">
+                    <label class="review-action-check"><input type="checkbox" checked=""><span>Mark for Action</span></label><select class="review-action-type-select is-visible review-action-type-select--email" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">
                       Take Action
                     </button>
                   </div>
@@ -3267,12 +3274,12 @@
               <div class="expected-answer-status-wrap">
                 <div class="expected-answer-status-row expected-answer-status-row--with-actions">
 
-                  <button type="button" class="expected-answer-toggle-btn expected-answer-toggle-btn--match" data-expected-answer-toggle="">
+                  <button type="button" class="expected-answer-toggle-btn expected-answer-toggle-btn--match" data-expected-answer-toggle="" title="View expected answer configuration for this correct answer" aria-label="View expected answer configuration for this correct answer">
                     <span class="expected-answer-toggle-btn__icon">✓</span>
                     <span class="expected-answer-toggle-btn__arrow"></span>
                   </button>
 
-                  <button type="button" id="reviewYesNoCorrectEvidenceToggle" class="expected-answer-toggle-btn" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewYesNoCorrectEvidence" aria-label="Add comment or attachments">
+                  <button type="button" id="reviewYesNoCorrectEvidenceToggle" class="expected-answer-toggle-btn" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewYesNoCorrectEvidence" aria-label="Add comment or attachments" title="Add comment or attachments">
                     <span class="expected-answer-toggle-btn__icon">
                       <img src="https://acreation.co.za/lendorainspired/Icons/comment.svg" alt="" class="meta-toggle__icon">
                     </span>
@@ -3290,7 +3297,7 @@
                       <span>Disapprove</span>
                     </label>
 
-                    <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">
+                    <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><select class="review-action-type-select review-action-type-select--email" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">
                       Take Action
                     </button>
                   </div>
@@ -3371,12 +3378,12 @@
               <div class="expected-answer-status-wrap">
                 <div class="expected-answer-status-row expected-answer-status-row--with-actions">
 
-                  <button type="button" class="expected-answer-toggle-btn expected-answer-toggle-btn--mismatch" data-expected-answer-toggle="">
+                  <button type="button" class="expected-answer-toggle-btn expected-answer-toggle-btn--mismatch" data-expected-answer-toggle="" title="View expected answer configuration for this incorrect answer" aria-label="View expected answer configuration for this incorrect answer">
                     <span class="expected-answer-toggle-btn__icon">!</span>
                     <span class="expected-answer-toggle-btn__arrow"></span>
                   </button>
 
-                  <button type="button" id="reviewYesNoIncorrectEvidenceToggle" class="expected-answer-toggle-btn" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewYesNoIncorrectEvidence" aria-label="Add comment or attachments">
+                  <button type="button" id="reviewYesNoIncorrectEvidenceToggle" class="expected-answer-toggle-btn" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewYesNoIncorrectEvidence" aria-label="Add comment or attachments" title="Add comment or attachments">
                     <span class="expected-answer-toggle-btn__icon">
                       <img src="https://acreation.co.za/lendorainspired/Icons/comment.svg" alt="" class="meta-toggle__icon">
                     </span>
@@ -3394,7 +3401,7 @@
                       <span>Disapprove</span>
                     </label>
 
-                    <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">
+                    <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><select class="review-action-type-select review-action-type-select--email" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">
                       Take Action
                     </button>
                   </div>
@@ -3491,12 +3498,12 @@
               <div class="expected-answer-status-wrap">
                 <div class="expected-answer-status-row expected-answer-status-row--with-actions">
 
-                  <button type="button" class="expected-answer-toggle-btn expected-answer-toggle-btn--match" data-expected-answer-toggle="">
+                  <button type="button" class="expected-answer-toggle-btn expected-answer-toggle-btn--match" data-expected-answer-toggle="" title="View expected answer configuration for this correct answer" aria-label="View expected answer configuration for this correct answer">
                     <span class="expected-answer-toggle-btn__icon">✓</span>
                     <span class="expected-answer-toggle-btn__arrow"></span>
                   </button>
 
-                  <button type="button" id="reviewYesNoMaybeCorrectEvidenceToggle" class="expected-answer-toggle-btn" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewYesNoMaybeCorrectEvidence" aria-label="Add comment or attachments">
+                  <button type="button" id="reviewYesNoMaybeCorrectEvidenceToggle" class="expected-answer-toggle-btn" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewYesNoMaybeCorrectEvidence" aria-label="Add comment or attachments" title="Add comment or attachments">
                     <span class="expected-answer-toggle-btn__icon">
                       <img src="https://acreation.co.za/lendorainspired/Icons/comment.svg" alt="" class="meta-toggle__icon">
                     </span>
@@ -3514,7 +3521,7 @@
                       <span>Disapprove</span>
                     </label>
 
-                    <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">
+                    <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><select class="review-action-type-select review-action-type-select--email" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">
                       Take Action
                     </button>
                   </div>
@@ -3604,12 +3611,12 @@
               <div class="expected-answer-status-wrap">
                 <div class="expected-answer-status-row expected-answer-status-row--with-actions">
 
-                  <button type="button" class="expected-answer-toggle-btn expected-answer-toggle-btn--mismatch" data-expected-answer-toggle="">
+                  <button type="button" class="expected-answer-toggle-btn expected-answer-toggle-btn--mismatch" data-expected-answer-toggle="" title="View expected answer configuration for this incorrect answer" aria-label="View expected answer configuration for this incorrect answer">
                     <span class="expected-answer-toggle-btn__icon">!</span>
                     <span class="expected-answer-toggle-btn__arrow"></span>
                   </button>
 
-                  <button type="button" id="reviewYesNoMaybeEvidenceToggle" class="expected-answer-toggle-btn review-evidence-toggle-btn--has-content" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewYesNoMaybeEvidence" aria-label="Show comment and attachments">
+                  <button type="button" id="reviewYesNoMaybeEvidenceToggle" class="expected-answer-toggle-btn review-evidence-toggle-btn--has-content" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewYesNoMaybeEvidence" aria-label="Show comment and attachments" title="View comment and attachments">
                     <span class="expected-answer-toggle-btn__icon">
                       <img src="https://acreation.co.za/lendorainspired/Icons/comment.svg" alt="" class="meta-toggle__icon">
                     </span>
@@ -3627,7 +3634,7 @@
                       <span>Disapprove</span>
                     </label>
 
-                    <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">
+                    <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><select class="review-action-type-select review-action-type-select--email" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">
                       Take Action
                     </button>
                   </div>
@@ -7148,7 +7155,8 @@
 
 
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-  <script src="./js/script.js?v16"></script>
+  <script src="./js/script.js?v21"></script>
+
 
 
 

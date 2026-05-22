@@ -108,6 +108,57 @@ document.addEventListener('DOMContentLoaded', function () {
     placeTooltip(target);
   }
 
+  function getReviewStateTooltip(questionBlock) {
+    const isApproved = questionBlock.classList.contains('question-block--approved');
+    const isDisapproved = questionBlock.classList.contains('question-block--disapproved');
+    const isMarked = questionBlock.classList.contains('question-block--marked-for-action');
+    const isActionTaken = questionBlock.classList.contains('question-block--action-required');
+
+    if (isApproved && isMarked) return 'Approved and marked for action';
+    if (isDisapproved && isMarked) return 'Disapproved and marked for action';
+    if (isApproved && isActionTaken) return 'Approved and action has been taken';
+    if (isDisapproved && isActionTaken) return 'Disapproved and action has been taken';
+    if (isApproved) return 'Approved';
+    if (isDisapproved) return 'Disapproved';
+    if (isMarked) return 'Marked for action';
+    if (isActionTaken) return 'Action has been taken';
+    return '';
+  }
+
+  document.querySelectorAll('.question-block').forEach(function (questionBlock) {
+    const tooltipText = getReviewStateTooltip(questionBlock);
+    if (!tooltipText || questionBlock.querySelector('.review-state-bar-hitarea')) return;
+
+    const hitArea = document.createElement('span');
+    hitArea.className = 'review-state-bar-hitarea';
+    hitArea.setAttribute('data-prominent-tooltip', tooltipText);
+    hitArea.setAttribute('aria-hidden', 'true');
+    questionBlock.appendChild(hitArea);
+  });
+
+  function showReviewStateTooltip(questionBlock, event) {
+    const text = getReviewStateTooltip(questionBlock);
+    if (!text) return;
+
+    tooltip.textContent = text;
+    tooltip.classList.remove('prominent-tooltip--below');
+    tooltip.hidden = false;
+
+    const rect = questionBlock.getBoundingClientRect();
+    const tooltipRect = tooltip.getBoundingClientRect();
+    let top = event.clientY - tooltipRect.height - 12;
+    let left = rect.left - 12;
+
+    if (top < 8) {
+      top = event.clientY + 12;
+      tooltip.classList.add('prominent-tooltip--below');
+    }
+
+    left = Math.max(8, Math.min(left, window.innerWidth - tooltipRect.width - 8));
+    tooltip.style.top = top + 'px';
+    tooltip.style.left = left + 'px';
+  }
+
   function hideTooltip() {
     tooltip.hidden = true;
   }
@@ -120,6 +171,24 @@ document.addEventListener('DOMContentLoaded', function () {
   document.addEventListener('pointerout', function (event) {
     if (event.target.closest('[data-prominent-tooltip]')) hideTooltip();
   });
+
+  document.addEventListener('pointermove', function (event) {
+    const questionBlock = event.target.closest('.question-block');
+    if (!questionBlock) return;
+
+    const rect = questionBlock.getBoundingClientRect();
+    const isOverStateBar = event.clientX >= rect.left - 18 && event.clientX <= rect.left + 6;
+
+    if (isOverStateBar) {
+      showReviewStateTooltip(questionBlock, event);
+    } else if (!event.target.closest('[data-prominent-tooltip]')) {
+      hideTooltip();
+    }
+  });
+
+  document.addEventListener('pointerleave', function (event) {
+    if (event.target.closest && event.target.closest('.question-block')) hideTooltip();
+  }, true);
 
   document.addEventListener('focusin', function (event) {
     const target = event.target.closest('[data-prominent-tooltip]');
@@ -235,6 +304,28 @@ document.addEventListener('click', function (e) {
 });
 
 document.addEventListener('DOMContentLoaded', function () {
+  function syncContextControlHints() {
+    document.querySelectorAll('.form-context-item').forEach(function (item) {
+      const label = item.querySelector('.form-context-item__label');
+      const select = item.querySelector('.control--context');
+      const value = select
+        ? select.options[select.selectedIndex] && select.options[select.selectedIndex].text
+        : item.querySelector('.form-context-item__value') && item.querySelector('.form-context-item__value').textContent;
+
+      if (!label || !value) return;
+
+      const hint = label.textContent.replace(/\s+/g, ' ').trim() + ': ' + value.replace(/\s+/g, ' ').trim();
+      const target = item.querySelector('.select-wrap--context') || item;
+
+      target.setAttribute('data-prominent-tooltip', hint);
+      target.setAttribute('title', hint);
+      if (select) {
+        select.setAttribute('data-prominent-tooltip', hint);
+        select.setAttribute('title', hint);
+      }
+    });
+  }
+
   function clearSelect(select) {
     if (!select) return;
     select.selectedIndex = 0;
@@ -255,6 +346,12 @@ document.addEventListener('DOMContentLoaded', function () {
       document.querySelectorAll('.control--context').forEach(clearSelect);
     });
   });
+
+  document.querySelectorAll('.control--context').forEach(function (select) {
+    select.addEventListener('change', syncContextControlHints);
+  });
+
+  syncContextControlHints();
 });
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -278,8 +375,8 @@ document.addEventListener('DOMContentLoaded', function () {
       }
       if (densityToggleIcon) {
         densityToggleIcon.src = isCompact
-          ? 'https://acreation.co.za/lendorainspired/Icons/expand.svg'
-          : 'https://acreation.co.za/lendorainspired/Icons/collapse.svg';
+          ? 'https://acreation.co.za/lendorainspired/Icons/collapse.svg'
+          : 'https://acreation.co.za/lendorainspired/Icons/expand.svg';
       }
     }
 
@@ -294,32 +391,69 @@ document.addEventListener('DOMContentLoaded', function () {
 
 document.addEventListener('DOMContentLoaded', function () {
   const stickyHeader = document.querySelector('.sticky-review-header');
-  const stickyToggle = document.querySelector('[data-sticky-header-toggle]');
+  const stickyToggles = Array.from(document.querySelectorAll('[data-sticky-header-toggle]'));
 
-  if (stickyHeader && stickyToggle) {
-    const stickyToggleIcon = stickyToggle.querySelector('.sticky-lock-toggle__icon');
-
+  if (stickyHeader && stickyToggles.length) {
     function syncStickyToggle() {
       const isLocked = stickyHeader.classList.contains('is-sticky-locked');
       const label = isLocked ? 'Unlock sticky header' : 'Lock sticky header';
 
-      stickyToggle.classList.toggle('is-locked', isLocked);
-      stickyToggle.setAttribute('aria-pressed', isLocked ? 'true' : 'false');
-      stickyToggle.setAttribute('aria-label', label);
-      stickyToggle.setAttribute('title', label);
-      if (stickyToggleIcon) {
-        stickyToggleIcon.src = isLocked
-          ? 'https://acreation.co.za/lendorainspired/Icons/locked.svg'
-          : 'https://acreation.co.za/lendorainspired/Icons/lock-unlocked.svg';
-      }
+      stickyToggles.forEach(function (stickyToggle) {
+        const stickyToggleIcon = stickyToggle.querySelector('.sticky-lock-toggle__icon');
+        const isFloatingToggle = stickyToggle.classList.contains('sticky-lock-toggle--floating');
+
+        stickyToggle.classList.toggle('is-locked', isLocked);
+        stickyToggle.classList.toggle('is-hidden', isFloatingToggle && isLocked);
+        stickyToggle.setAttribute('aria-pressed', isLocked ? 'true' : 'false');
+        stickyToggle.setAttribute('aria-label', label);
+        stickyToggle.setAttribute('title', label);
+
+        if (stickyToggleIcon) {
+          stickyToggleIcon.src = isLocked
+            ? 'https://acreation.co.za/lendorainspired/Icons/locked.svg'
+            : 'https://acreation.co.za/lendorainspired/Icons/lock-unlocked.svg';
+        }
+      });
     }
 
-    stickyToggle.addEventListener('click', function () {
-      stickyHeader.classList.toggle('is-sticky-locked');
-      syncStickyToggle();
+    stickyToggles.forEach(function (stickyToggle) {
+      stickyToggle.addEventListener('click', function () {
+        stickyHeader.classList.toggle('is-sticky-locked');
+        syncStickyToggle();
+      });
     });
 
     syncStickyToggle();
+  }
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  const evaluationToggle = document.querySelector('[data-evaluation-layer-toggle]');
+
+  if (evaluationToggle) {
+    const evaluationToggleIcon = evaluationToggle.querySelector('.evaluation-layer-toggle__icon');
+
+    function syncEvaluationToggle() {
+      const isHidden = document.body.classList.contains('is-evaluation-hidden');
+      const label = isHidden ? 'Show evaluation markings' : 'Hide evaluation markings';
+
+      evaluationToggle.classList.toggle('is-evaluation-hidden', isHidden);
+      evaluationToggle.setAttribute('aria-pressed', isHidden ? 'true' : 'false');
+      evaluationToggle.setAttribute('aria-label', label);
+      evaluationToggle.setAttribute('title', label);
+      if (evaluationToggleIcon) {
+        evaluationToggleIcon.src = isHidden
+          ? 'https://acreation.co.za/lendorainspired/Icons/noview.svg'
+          : 'https://acreation.co.za/lendorainspired/Icons/view.svg';
+      }
+    }
+
+    evaluationToggle.addEventListener('click', function () {
+      document.body.classList.toggle('is-evaluation-hidden');
+      syncEvaluationToggle();
+    });
+
+    syncEvaluationToggle();
   }
 });
 
