@@ -76,13 +76,263 @@ document.addEventListener('click', function (e) {
 });
 
 document.addEventListener('DOMContentLoaded', function () {
+  const tooltip = document.createElement('div');
+  tooltip.className = 'prominent-tooltip';
+  tooltip.setAttribute('role', 'tooltip');
+  tooltip.hidden = true;
+  document.body.appendChild(tooltip);
+
+  function placeTooltip(target) {
+    const rect = target.getBoundingClientRect();
+    tooltip.classList.remove('prominent-tooltip--below');
+    tooltip.hidden = false;
+
+    const tooltipRect = tooltip.getBoundingClientRect();
+    let top = rect.top - tooltipRect.height - 10;
+    let left = rect.left + Math.min(18, Math.max(0, rect.width / 2 - 18));
+
+    if (top < 8) {
+      top = rect.bottom + 10;
+      tooltip.classList.add('prominent-tooltip--below');
+    }
+
+    left = Math.max(8, Math.min(left, window.innerWidth - tooltipRect.width - 8));
+    tooltip.style.top = top + 'px';
+    tooltip.style.left = left + 'px';
+  }
+
+  function showTooltip(target) {
+    const text = target.getAttribute('data-prominent-tooltip');
+    if (!text) return;
+    tooltip.textContent = text;
+    placeTooltip(target);
+  }
+
+  function hideTooltip() {
+    tooltip.hidden = true;
+  }
+
+  document.addEventListener('pointerover', function (event) {
+    const target = event.target.closest('[data-prominent-tooltip]');
+    if (target) showTooltip(target);
+  });
+
+  document.addEventListener('pointerout', function (event) {
+    if (event.target.closest('[data-prominent-tooltip]')) hideTooltip();
+  });
+
+  document.addEventListener('focusin', function (event) {
+    const target = event.target.closest('[data-prominent-tooltip]');
+    if (target) showTooltip(target);
+  });
+
+  document.addEventListener('focusout', function (event) {
+    if (event.target.closest('[data-prominent-tooltip]')) hideTooltip();
+  });
+
+  window.addEventListener('scroll', hideTooltip, true);
+  window.addEventListener('resize', hideTooltip);
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  function syncActionTypeSelectColor(select) {
+    if (!select) return;
+
+    select.classList.remove(
+      'review-action-type-select--email',
+      'review-action-type-select--pt',
+      'review-action-type-select--standard-plan'
+    );
+
+    if (select.value === 'email') {
+      select.classList.add('review-action-type-select--email');
+    } else if (select.value === 'pt') {
+      select.classList.add('review-action-type-select--pt');
+    } else if (select.value === 'standard-plan') {
+      select.classList.add('review-action-type-select--standard-plan');
+    }
+  }
+
+  function syncGlobalActionButtons() {
+    const activeTypes = new Set();
+
+    document.querySelectorAll('label.review-action-check input[type="checkbox"]').forEach(function (checkbox) {
+      const label = checkbox.closest('label.review-action-check');
+      const labelText = label ? label.textContent.replace(/\s+/g, ' ').trim() : '';
+      if (labelText !== 'Mark for Action' || !checkbox.checked) return;
+
+      const select = label.nextElementSibling && label.nextElementSibling.classList.contains('review-action-type-select')
+        ? label.nextElementSibling
+        : null;
+
+      if (select) {
+        activeTypes.add(select.value);
+      }
+    });
+
+    const emailButton = document.querySelector('.context-primary-action-btn--email');
+    const ptButton = document.querySelector('.context-primary-action-btn--pt');
+    const standardButton = document.querySelector('.context-primary-action-btn--standard');
+
+    if (emailButton) emailButton.classList.toggle('is-action-active', activeTypes.has('email'));
+    if (ptButton) ptButton.classList.toggle('is-action-active', activeTypes.has('pt'));
+    if (standardButton) standardButton.classList.toggle('is-action-active', activeTypes.has('standard-plan'));
+  }
+
+  function syncActionTypeSelect(checkbox) {
+    if (!checkbox) return;
+
+    const label = checkbox.closest('label.review-action-check');
+    const select = label && label.nextElementSibling && label.nextElementSibling.classList.contains('review-action-type-select')
+      ? label.nextElementSibling
+      : null;
+
+    if (!select) return;
+    select.classList.toggle('is-visible', checkbox.checked);
+    syncActionTypeSelectColor(select);
+  }
+
+  document.querySelectorAll('label.review-action-check input[type="checkbox"]').forEach(function (checkbox) {
+    const label = checkbox.closest('label.review-action-check');
+    const labelText = label ? label.textContent.replace(/\s+/g, ' ').trim() : '';
+    if (labelText !== 'Mark for Action') return;
+
+    syncActionTypeSelect(checkbox);
+    checkbox.addEventListener('change', function () {
+      syncActionTypeSelect(checkbox);
+      syncGlobalActionButtons();
+    });
+  });
+
+  document.querySelectorAll('.review-action-type-select').forEach(function (select) {
+    syncActionTypeSelectColor(select);
+    select.addEventListener('change', function () {
+      syncActionTypeSelectColor(select);
+      syncGlobalActionButtons();
+    });
+  });
+
+  syncGlobalActionButtons();
+});
+
+document.addEventListener('click', function (e) {
+  const button = e.target.closest('[data-action-history-toggle]');
+  if (!button) return;
+
+  const panel = document.getElementById(button.getAttribute('aria-controls'));
+  if (!panel) return;
+
+  const isHidden = panel.hasAttribute('hidden');
+  if (isHidden) {
+    panel.removeAttribute('hidden');
+    button.classList.add('is-open');
+    button.setAttribute('aria-expanded', 'true');
+  } else {
+    panel.setAttribute('hidden', '');
+    button.classList.remove('is-open');
+    button.setAttribute('aria-expanded', 'false');
+  }
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  function clearSelect(select) {
+    if (!select) return;
+    select.selectedIndex = 0;
+    select.dispatchEvent(new Event('change', { bubbles: true }));
+  }
+
+  document.querySelectorAll('[data-clear-select]').forEach(function (button) {
+    button.addEventListener('click', function (event) {
+      event.preventDefault();
+      event.stopPropagation();
+      clearSelect(document.getElementById(button.getAttribute('data-clear-select')));
+    });
+  });
+
+  document.querySelectorAll('[data-clear-all-filters]').forEach(function (button) {
+    button.addEventListener('click', function (event) {
+      event.preventDefault();
+      document.querySelectorAll('.control--context').forEach(clearSelect);
+    });
+  });
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  const commandCenter = document.querySelector('.review-command-center');
+  const densityToggle = document.querySelector('[data-control-density-toggle]');
+
+  if (commandCenter && densityToggle) {
+    const densityToggleText = densityToggle.querySelector('.control-density-toggle__text');
+    const densityToggleIcon = densityToggle.querySelector('.control-density-toggle__icon');
+
+    function syncDensityToggle() {
+      const isCompact = commandCenter.classList.contains('is-controls-compact');
+      const label = isCompact ? 'Expand control filters' : 'Collapse control filters';
+
+      densityToggle.setAttribute('aria-pressed', isCompact ? 'true' : 'false');
+      densityToggle.setAttribute('aria-label', label);
+      densityToggle.setAttribute('title', label);
+      densityToggle.classList.toggle('is-compact', isCompact);
+      if (densityToggleText) {
+        densityToggleText.textContent = isCompact ? 'Full View' : 'Compact View';
+      }
+      if (densityToggleIcon) {
+        densityToggleIcon.src = isCompact
+          ? 'https://acreation.co.za/lendorainspired/Icons/expand.svg'
+          : 'https://acreation.co.za/lendorainspired/Icons/collapse.svg';
+      }
+    }
+
+    densityToggle.addEventListener('click', function () {
+      commandCenter.classList.toggle('is-controls-compact');
+      syncDensityToggle();
+    });
+
+    syncDensityToggle();
+  }
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  const stickyHeader = document.querySelector('.sticky-review-header');
+  const stickyToggle = document.querySelector('[data-sticky-header-toggle]');
+
+  if (stickyHeader && stickyToggle) {
+    const stickyToggleIcon = stickyToggle.querySelector('.sticky-lock-toggle__icon');
+
+    function syncStickyToggle() {
+      const isLocked = stickyHeader.classList.contains('is-sticky-locked');
+      const label = isLocked ? 'Unlock sticky header' : 'Lock sticky header';
+
+      stickyToggle.classList.toggle('is-locked', isLocked);
+      stickyToggle.setAttribute('aria-pressed', isLocked ? 'true' : 'false');
+      stickyToggle.setAttribute('aria-label', label);
+      stickyToggle.setAttribute('title', label);
+      if (stickyToggleIcon) {
+        stickyToggleIcon.src = isLocked
+          ? 'https://acreation.co.za/lendorainspired/Icons/locked.svg'
+          : 'https://acreation.co.za/lendorainspired/Icons/lock-unlocked.svg';
+      }
+    }
+
+    stickyToggle.addEventListener('click', function () {
+      stickyHeader.classList.toggle('is-sticky-locked');
+      syncStickyToggle();
+    });
+
+    syncStickyToggle();
+  }
+});
+
+document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('[data-expected-answer-toggle]').forEach(function (button) {
     const isMismatch = button.classList.contains('expected-answer-toggle-btn--mismatch');
     const title = isMismatch
       ? 'View expected answer configuration for this incorrect answer'
       : 'View expected answer configuration for this correct answer';
 
-    button.setAttribute('title', title);
+    if (!button.hasAttribute('data-prominent-tooltip')) {
+      button.setAttribute('title', title);
+    }
     button.setAttribute('aria-label', title);
   });
 
@@ -92,7 +342,9 @@ document.addEventListener('DOMContentLoaded', function () {
       ? 'View comment and attachments'
       : 'Add comment or attachments';
 
-    button.setAttribute('title', title);
+    if (!button.hasAttribute('data-prominent-tooltip')) {
+      button.setAttribute('title', title);
+    }
     button.setAttribute('aria-label', title);
   });
 });
@@ -104,7 +356,10 @@ document.addEventListener('DOMContentLoaded', function () {
   function isTakeActionButton(button) {
     if (!button) return false;
     const label = button.textContent.replace(/\s+/g, ' ').trim();
-    return label === 'Take Action' || label === 'Take Action on Question' || label === 'Take Global Action';
+    return label === 'Take Action'
+      || label === 'Take Action on Question'
+      || label.startsWith('Take Action:')
+      || label.startsWith('Take Global Action');
   }
 
   function openActionModal(button) {
@@ -112,7 +367,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const label = button ? button.textContent.replace(/\s+/g, ' ').trim() : '';
     if (actionModalTitle) {
-      actionModalTitle.textContent = label === 'Take Global Action' ? 'Edit Global Actions' : 'Edit Actions';
+      actionModalTitle.textContent = (label.startsWith('Take Action:') || label.startsWith('Take Global Action')) ? 'Edit Global Actions' : 'Edit Actions';
     }
 
     actionModal.removeAttribute('hidden');

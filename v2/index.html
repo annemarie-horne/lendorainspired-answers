@@ -6,7 +6,7 @@
     <title>Lendora Inspired</title>
 
   <link rel="stylesheet" href="./css/timemaker.css?v1">
-  <link rel="stylesheet" href="./css/style.css?v24">
+  <link rel="stylesheet" href="./css/style.css?v37">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&amp;display=swap" rel="stylesheet">
@@ -27,39 +27,39 @@
     </div>
   </div>
 
-
   <div class="workflow-tracker">
     <div class="workflow-step workflow-step--done">
       <div class="workflow-step__dot"></div>
       <div class="workflow-step__label">Created</div>
-      <div class="workflow-step__date">14.05.2026 13:45</div>
+      <div class="workflow-step__date">14 May 2026 13:45</div>
     </div>
 
     <div class="workflow-step workflow-step--done">
       <div class="workflow-step__dot"></div>
       <div class="workflow-step__label">Started</div>
-      <div class="workflow-step__date">14.05.2026 13:45</div>
+      <div class="workflow-step__date">14 May 2026 13:45</div>
     </div>
 
     <div class="workflow-step workflow-step--active">
       <div class="workflow-step__dot"></div>
       <div class="workflow-step__label">Completed</div>
-      <div class="workflow-step__date">14.05.2026 13:46</div>
+      <div class="workflow-step__date">14 May 2026 13:46</div>
     </div>
 
     <div class="workflow-step">
       <div class="workflow-step__dot"></div>
       <div class="workflow-step__label">Evaluated</div>
-      <div class="workflow-step__date">14.05.2026</div>
+      <div class="workflow-step__date">14 May 2026</div>
     </div>
 
     <div class="workflow-step">
       <div class="workflow-step__dot"></div>
       <div class="workflow-step__label">Evaluation Delivered</div>
-      <div class="workflow-step__date">14.05.2026</div>
+      <div class="workflow-step__date">14 May 2026</div>
     </div>
   </div>
 
+  <div class="sticky-review-header is-sticky-locked">
   <div class="review-command-center">
     <div class="review-command-center__top">
       <div class="review-metric-strip" aria-label="Review summary">
@@ -111,6 +111,12 @@
           <span class="review-state-legend__swatch review-state-legend__swatch--take-action"></span>
           Take Action
         </span>
+        <button type="button" class="control-density-toggle" data-control-density-toggle="" aria-pressed="false" aria-label="Collapse control filters" title="Collapse control filters">
+          <img src="https://acreation.co.za/lendorainspired/Icons/collapse.svg" alt="" class="control-density-toggle__icon" aria-hidden="true">
+        </button>
+        <button type="button" class="sticky-lock-toggle is-locked" data-sticky-header-toggle="" aria-pressed="true" aria-label="Unlock sticky header" title="Unlock sticky header">
+          <img src="https://acreation.co.za/lendorainspired/Icons/locked.svg" alt="" class="sticky-lock-toggle__icon" aria-hidden="true">
+        </button>
       </div>
     </div>
 
@@ -136,6 +142,7 @@
             <option>Radio fields only</option>
             <option>Fields with uploads only</option>
           </select>
+          <button type="button" class="select-clear-btn" data-clear-select="formViewType" aria-label="Clear view form sections filter" title="Clear view form sections filter">×</button>
         </div>
       </div>
 
@@ -147,6 +154,7 @@
             <option>Only matching answers</option>
             <option>Only not matching answers</option>
           </select>
+          <button type="button" class="select-clear-btn" data-clear-select="answerResultFilter" aria-label="Clear answer result filter" title="Clear answer result filter">×</button>
         </div>
       </div>
 
@@ -159,12 +167,19 @@
             <option>Disapproved</option>
             <option>Take action</option>
           </select>
+          <button type="button" class="select-clear-btn" data-clear-select="reviewStatusFilter" aria-label="Clear review status filter" title="Clear review status filter">×</button>
         </div>
       </div>
+      <button type="button" class="clear-all-filters-btn" data-clear-all-filters="" aria-label="Clear all filters" title="Clear all filters">×</button>
     </div>
 
-      <button type="button" class="context-primary-action-btn">Take Global Action</button>
+      <div class="global-action-button-group" aria-label="Global action shortcuts">
+        <button type="button" class="context-primary-action-btn context-primary-action-btn--email">Take Action: Email</button>
+        <button type="button" class="context-primary-action-btn context-primary-action-btn--pt">Take Action: PT</button>
+        <button type="button" class="context-primary-action-btn context-primary-action-btn--standard">Take Action: Standard Plan</button>
+      </div>
     </div>
+  </div>
   </div>
 
   <div class="white-shadowed-section-frame-outter">
@@ -210,11 +225,16 @@
                   <label class="review-action-check">
                     <input type="checkbox">
                     <span>Mark for Action</span>
-                  </label>
+                  </label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select>
 
                   <button type="button" class="review-action-btn">Take Action</button>
                 </div>
-              </div>
+              <button type="button" class="expected-answer-toggle-btn action-history-toggle-btn" data-action-history-toggle="" aria-expanded="false" aria-controls="actionHistoryFirstName" aria-label="View previous action details" title="View previous action details"><span class="expected-answer-toggle-btn__icon"><img src="https://acreation.co.za/lendorainspired/Icons/4%20Actions/actions-inactive.svg" alt="" class="meta-toggle__icon"></span><span class="expected-answer-toggle-btn__arrow"></span></button></div><div class="action-history-panel" id="actionHistoryFirstName" hidden=""><div class="action-history-panel__title">Email</div><div class="action-history-panel__content">
+                From: meir@meirezra.com<br/>
+                To: ana@gprosperity.com<br/>
+                Subject: Missing first-name confirmation<br>
+                Sent by Meir Ezra on 14 May 2026 14:12
+              </div></div>
 
               <div class="review-evidence review-summary-field-row__evidence" id="reviewSummaryFirstNameEvidence" hidden="">
                 <div class="review-evidence__field">
@@ -266,7 +286,7 @@
                   <label class="review-action-check">
                     <input type="checkbox">
                     <span>Mark for Action</span>
-                  </label>
+                  </label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select>
 
                   <button type="button" class="review-action-btn">Take Action</button>
                 </div>
@@ -323,7 +343,7 @@
                   <label class="review-action-check">
                     <input type="checkbox">
                     <span>Mark for Action</span>
-                  </label>
+                  </label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select>
 
                   <button type="button" class="review-action-btn">Take Action</button>
                 </div>
@@ -380,7 +400,7 @@
                   <label class="review-action-check">
                     <input type="checkbox">
                     <span>Mark for Action</span>
-                  </label>
+                  </label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select>
 
                   <button type="button" class="review-action-btn">Take Action</button>
                 </div>
@@ -408,8 +428,6 @@
 
               </div>
             </div>
-
-            <div class="review-summary-group-heading">Property Details</div>
 
             <div class="review-summary-field-row">
               <div class="review-summary-field-row__field">
@@ -439,7 +457,7 @@
                   <label class="review-action-check">
                     <input type="checkbox">
                     <span>Mark for Action</span>
-                  </label>
+                  </label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select>
 
                   <button type="button" class="review-action-btn">Take Action</button>
                 </div>
@@ -496,7 +514,7 @@
                   <label class="review-action-check">
                     <input type="checkbox">
                     <span>Mark for Action</span>
-                  </label>
+                  </label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select>
 
                   <button type="button" class="review-action-btn">Take Action</button>
                 </div>
@@ -553,7 +571,7 @@
                   <label class="review-action-check">
                     <input type="checkbox">
                     <span>Mark for Action</span>
-                  </label>
+                  </label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select>
 
                   <button type="button" class="review-action-btn">Take Action</button>
                 </div>
@@ -610,7 +628,7 @@
                   <label class="review-action-check">
                     <input type="checkbox">
                     <span>Mark for Action</span>
-                  </label>
+                  </label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select>
 
                   <button type="button" class="review-action-btn">Take Action</button>
                 </div>
@@ -667,7 +685,7 @@
                   <label class="review-action-check">
                     <input type="checkbox">
                     <span>Mark for Action</span>
-                  </label>
+                  </label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select>
 
                   <button type="button" class="review-action-btn">Take Action</button>
                 </div>
@@ -724,7 +742,7 @@
                   <label class="review-action-check">
                     <input type="checkbox">
                     <span>Mark for Action</span>
-                  </label>
+                  </label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select>
 
                   <button type="button" class="review-action-btn">Take Action</button>
                 </div>
@@ -783,7 +801,7 @@
                   <label class="review-action-check">
                     <input type="checkbox">
                     <span>Mark for Action</span>
-                  </label>
+                  </label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select>
 
                   <button type="button" class="review-action-btn">Take Action</button>
                 </div>
@@ -839,7 +857,7 @@
                   <label class="review-action-check">
                     <input type="checkbox">
                     <span>Mark for Action</span>
-                  </label>
+                  </label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select>
 
                   <button type="button" class="review-action-btn">Take Action</button>
                 </div>
@@ -921,12 +939,12 @@
             <div class="expected-answer-status-wrap">
               <div class="expected-answer-status-row expected-answer-status-row--with-actions">
 
-                <button type="button" class="expected-answer-toggle-btn expected-answer-toggle-btn--match" data-expected-answer-toggle="">
+                <button type="button" class="expected-answer-toggle-btn expected-answer-toggle-btn--match" data-expected-answer-toggle="" data-prominent-tooltip="View the expected answer configuration for this matching answer">
                   <span class="expected-answer-toggle-btn__icon">✓</span>
                   <span class="expected-answer-toggle-btn__arrow"></span>
                 </button>
 
-                <button type="button" id="reviewAddressCorrectEvidenceToggle" class="expected-answer-toggle-btn" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewAddressCorrectEvidence" aria-label="Add comment or attachments">
+                <button type="button" id="reviewAddressCorrectEvidenceToggle" class="expected-answer-toggle-btn" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewAddressCorrectEvidence" aria-label="Add comment or attachments" data-prominent-tooltip="Add or view notes and supporting documents">
                   <span class="expected-answer-toggle-btn__icon">
                     <img src="https://acreation.co.za/lendorainspired/Icons/comment.svg" alt="" class="meta-toggle__icon">
                   </span>
@@ -934,22 +952,24 @@
                 </button>
 
                 <div class="review-actions review-actions--inline">
-                  <label class="review-action-check">
+                  <label class="review-action-check" data-prominent-tooltip="Approve this answer after review. Ctr+Click to deselect.">
                     <input type="radio" name="reviewDecision13" value="approve">
                     <span>Approve</span>
                   </label>
 
-                  <label class="review-action-check">
+                  <label class="review-action-check" data-prominent-tooltip="Disapprove this answer after review. Ctr+Click to deselect.">
                     <input type="radio" name="reviewDecision13" value="disapprove">
                     <span>Disapprove</span>
                   </label>
 
-                  <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><button type="button" class="review-action-btn">
+                  <label class="review-action-check" data-prominent-tooltip="Mark this answer for follow-up action"><input type="checkbox"><span>Mark for Action</span></label><select class="review-action-type-select" aria-label="Mark for action type" data-prominent-tooltip="Choose the follow-up type: Email, PT, or Standard Plan"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn" data-prominent-tooltip="Open the action editor for this answer">
                     Take Action
                   </button>
                 </div>
 
-              </div>
+              <button type="button" class="expected-answer-toggle-btn action-history-toggle-btn" data-action-history-toggle="" aria-expanded="false" aria-controls="actionHistoryAddressCorrect" aria-label="View previous action details" title="View previous action details"><span class="expected-answer-toggle-btn__icon"><img src="https://acreation.co.za/lendorainspired/Icons/4%20Actions/actions-inactive.svg" alt="" class="meta-toggle__icon"></span><span class="expected-answer-toggle-btn__arrow"></span></button></div><div class="action-history-panel" id="actionHistoryAddressCorrect" hidden=""><div class="action-history-panel__title">
+                Production Task</div><div class="action-history-panel__content">
+                  ID: <a href="#">#086-13</a><br>Owner: [Meir]<br>Performer: [Gal]<br>Target Date: 3 Aug 2026<br>Subject: Verify property street address<br>Sent by Meir Ezra on 21 Jun 2026 10:04</div></div>
 
               <div class="expected-answer-panel" hidden="">
                 <div class="expected-answer-panel__title">
@@ -1061,12 +1081,12 @@
               <div class="expected-answer-status-wrap">
                 <div class="expected-answer-status-row expected-answer-status-row--with-actions">
 
-                  <button type="button" class="expected-answer-toggle-btn expected-answer-toggle-btn--mismatch" data-expected-answer-toggle="">
+                  <button type="button" class="expected-answer-toggle-btn expected-answer-toggle-btn--mismatch" data-expected-answer-toggle="" data-prominent-tooltip="View why this answer does not match the expected configuration">
                     <span class="expected-answer-toggle-btn__icon">!</span>
                     <span class="expected-answer-toggle-btn__arrow"></span>
                   </button>
 
-                  <button type="button" id="reviewAddressIncorrectEvidenceToggle" class="expected-answer-toggle-btn" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewAddressIncorrectEvidence" aria-label="Add comment or attachments">
+                  <button type="button" id="reviewAddressIncorrectEvidenceToggle" class="expected-answer-toggle-btn" data-review-evidence-toggle="" aria-expanded="false" aria-controls="reviewAddressIncorrectEvidence" aria-label="Add comment or attachments" data-prominent-tooltip="Add or view notes and supporting documents">
                     <span class="expected-answer-toggle-btn__icon">
                       <img src="https://acreation.co.za/lendorainspired/Icons/comment.svg" alt="" class="meta-toggle__icon">
                     </span>
@@ -1074,17 +1094,17 @@
                   </button>
 
                   <div class="review-actions review-actions--inline">
-                    <label class="review-action-check">
+                    <label class="review-action-check" data-prominent-tooltip="Approve this answer after review Ctr+Click to deselect.">
                       <input type="radio" name="reviewDecision14" value="approve">
                       <span>Approve</span>
                     </label>
 
-                    <label class="review-action-check">
+                    <label class="review-action-check" data-prominent-tooltip="Disapprove this answer after review. Ctr+Click to deselect.">
                       <input type="radio" name="reviewDecision14" value="disapprove">
                       <span>Disapprove</span>
                     </label>
 
-                    <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><button type="button" class="review-action-btn">
+                    <label class="review-action-check" data-prominent-tooltip="Mark this answer for follow-up action"><input type="checkbox"><span>Mark for Action</span></label><select class="review-action-type-select" aria-label="Mark for action type" data-prominent-tooltip="Choose the follow-up type: Email, PT, or Standard Plan"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn" data-prominent-tooltip="Open the action editor for this answer">
                       Take Action
                     </button>
                   </div>
@@ -1193,9 +1213,13 @@
                 <div class="review-actions review-actions--inline">
     <label class="review-action-check"><input type="radio" name="reviewDecision15" value="approve"><span>Approve</span></label>
     <label class="review-action-check"><input type="radio" name="reviewDecision15" value="disapprove"><span>Disapprove</span></label>
-    <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><button type="button" class="review-action-btn">Take Action</button>
+    <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">Take Action</button>
   </div>
-  </div>
+  <button type="button" class="expected-answer-toggle-btn action-history-toggle-btn" data-action-history-toggle="" aria-expanded="false" aria-controls="actionHistoryCalculatedCorrect" aria-label="View previous action details" title="View previous action details"><span class="expected-answer-toggle-btn__icon"><img src="https://acreation.co.za/lendorainspired/Icons/4%20Actions/actions-inactive.svg" alt="" class="meta-toggle__icon"></span><span class="expected-answer-toggle-btn__arrow"></span></button></div><div class="action-history-panel" id="actionHistoryCalculatedCorrect" hidden=""><div class="action-history-panel__title">Production Task</div>
+  <div class="action-history-panel__content">ID: <a href="#">#4A8-876</a><br>Owner: [Meir]<br>Performer: [Ana]<br>Target Date: 20 Aug 2026<br>Subject: Please review<br>Sent by Meir Ezra on 14 May 2026 14:12</div></div>
+
+
+
 
                 <div class="expected-answer-panel" hidden="">
                   <div class="expected-answer-panel__title">
@@ -1274,7 +1298,7 @@
                 <div class="review-actions review-actions--inline">
     <label class="review-action-check"><input type="radio" name="reviewDecision16" value="approve"><span>Approve</span></label>
     <label class="review-action-check"><input type="radio" name="reviewDecision16" value="disapprove"><span>Disapprove</span></label>
-    <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><button type="button" class="review-action-btn">Take Action</button>
+    <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">Take Action</button>
   </div>
   </div>
 
@@ -1373,7 +1397,7 @@
                 <span>Disapprove</span>
               </label>
 
-              <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><button type="button" class="review-action-btn">
+              <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">
                 Take Action
               </button>
             </div>
@@ -1461,7 +1485,7 @@
                 <span>Disapprove</span>
               </label>
 
-              <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><button type="button" class="review-action-btn">
+              <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">
                 Take Action
               </button>
             </div>
@@ -1555,7 +1579,7 @@
                 <span>Disapprove</span>
               </label>
 
-              <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><button type="button" class="review-action-btn">
+              <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">
                 Take Action
               </button>
             </div>
@@ -1644,7 +1668,7 @@
                 <span>Disapprove</span>
               </label>
 
-              <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><button type="button" class="review-action-btn">
+              <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">
                 Take Action
               </button>
             </div>
@@ -1718,7 +1742,7 @@
             <label class="review-action-check">
               <input type="checkbox" data-bulk-review-mark="">
               <span>Mark for Action</span>
-            </label>
+            </label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select>
           
             <button type="button" class="review-action-btn">
               Take Action on Question
@@ -1761,7 +1785,7 @@
                         <span>Disapprove</span>
                       </label>
                     
-                      <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><button type="button" class="review-action-btn">Take Action</button>
+                      <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">Take Action</button>
                     </div>
 
                 </div>
@@ -1831,7 +1855,7 @@
                         <span>Disapprove</span>
                       </label>
                     
-                      <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><button type="button" class="review-action-btn">Take Action</button>
+                      <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">Take Action</button>
                     </div>
 
                 </div>
@@ -1901,7 +1925,7 @@
                         <span>Disapprove</span>
                       </label>
                     
-                      <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><button type="button" class="review-action-btn">Take Action</button>
+                      <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">Take Action</button>
                     </div>
 
                 </div>
@@ -1971,7 +1995,7 @@
                         <span>Disapprove</span>
                       </label>
                     
-                      <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><button type="button" class="review-action-btn">Take Action</button>
+                      <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">Take Action</button>
                     </div>
 
                 </div>
@@ -2034,7 +2058,7 @@
                             <span>Disapprove</span>
                           </label>
                         
-                          <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><button type="button" class="review-action-btn">Take Action</button>
+                          <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">Take Action</button>
                         </div>
           
               </div>
@@ -2098,7 +2122,7 @@
             <label class="review-action-check">
               <input type="checkbox" data-bulk-review-mark="">
               <span>Mark for Action</span>
-            </label>
+            </label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select>
           
             <button type="button" class="review-action-btn">
               Take Action on Question
@@ -2139,7 +2163,7 @@
                         <span>Disapprove</span>
                       </label>
                     
-                      <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><button type="button" class="review-action-btn">Take Action</button>
+                      <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">Take Action</button>
                     </div>
 
                 </div>
@@ -2207,7 +2231,7 @@
                         <span>Disapprove</span>
                       </label>
                     
-                      <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><button type="button" class="review-action-btn">Take Action</button>
+                      <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">Take Action</button>
                     </div>
 
                 </div>
@@ -2275,7 +2299,7 @@
                         <span>Disapprove</span>
                       </label>
                     
-                      <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><button type="button" class="review-action-btn">Take Action</button>
+                      <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">Take Action</button>
                     </div>
 
                 </div>
@@ -2343,7 +2367,7 @@
                         <span>Disapprove</span>
                       </label>
                     
-                      <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><button type="button" class="review-action-btn">Take Action</button>
+                      <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">Take Action</button>
                     </div>
 
                 </div>
@@ -2406,7 +2430,7 @@
                             <span>Disapprove</span>
                           </label>
                         
-                          <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><button type="button" class="review-action-btn">Take Action</button>
+                          <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">Take Action</button>
                         </div>
           
               </div>
@@ -2486,7 +2510,7 @@
                 <span>Disapprove</span>
               </label>
 
-              <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><button type="button" class="review-action-btn">
+              <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">
                 Take Action
               </button>
             </div>
@@ -2579,7 +2603,7 @@
                 <span>Disapprove</span>
               </label>
 
-              <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><button type="button" class="review-action-btn">
+              <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">
                 Take Action
               </button>
             </div>
@@ -2676,7 +2700,7 @@
                 <span>Disapprove</span>
               </label>
 
-              <label class="review-action-check"><input type="checkbox" checked=""><span>Mark for Action</span></label><button type="button" class="review-action-btn">
+              <label class="review-action-check"><input type="checkbox" checked=""><span>Mark for Action</span></label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">
                 Take Action
               </button>
             </div>
@@ -2777,7 +2801,7 @@
                 <span>Disapprove</span>
               </label>
 
-              <label class="review-action-check"><input type="checkbox" checked=""><span>Mark for Action</span></label><button type="button" class="review-action-btn">
+              <label class="review-action-check"><input type="checkbox" checked=""><span>Mark for Action</span></label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">
                 Take Action
               </button>
             </div>
@@ -2882,7 +2906,7 @@
                 <span>Disapprove</span>
               </label>
 
-              <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><button type="button" class="review-action-btn">
+              <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">
                 Take Action
               </button>
             </div>
@@ -2966,7 +2990,7 @@
                 <span>Disapprove</span>
               </label>
 
-              <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><button type="button" class="review-action-btn">
+              <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">
                 Take Action
               </button>
             </div>
@@ -3065,7 +3089,7 @@
                       <span>Disapprove</span>
                     </label>
 
-                    <label class="review-action-check"><input type="checkbox" checked=""><span>Mark for Action</span></label><button type="button" class="review-action-btn">
+                    <label class="review-action-check"><input type="checkbox" checked=""><span>Mark for Action</span></label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">
                       Take Action
                     </button>
                   </div>
@@ -3161,7 +3185,7 @@
                       <span>Disapprove</span>
                     </label>
 
-                    <label class="review-action-check"><input type="checkbox" checked=""><span>Mark for Action</span></label><button type="button" class="review-action-btn">
+                    <label class="review-action-check"><input type="checkbox" checked=""><span>Mark for Action</span></label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">
                       Take Action
                     </button>
                   </div>
@@ -3266,7 +3290,7 @@
                       <span>Disapprove</span>
                     </label>
 
-                    <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><button type="button" class="review-action-btn">
+                    <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">
                       Take Action
                     </button>
                   </div>
@@ -3370,7 +3394,7 @@
                       <span>Disapprove</span>
                     </label>
 
-                    <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><button type="button" class="review-action-btn">
+                    <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">
                       Take Action
                     </button>
                   </div>
@@ -3490,7 +3514,7 @@
                       <span>Disapprove</span>
                     </label>
 
-                    <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><button type="button" class="review-action-btn">
+                    <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">
                       Take Action
                     </button>
                   </div>
@@ -3603,7 +3627,7 @@
                       <span>Disapprove</span>
                     </label>
 
-                    <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><button type="button" class="review-action-btn">
+                    <label class="review-action-check"><input type="checkbox"><span>Mark for Action</span></label><select class="review-action-type-select" aria-label="Mark for action type" title="Choose action type"><option value="email">Email</option><option value="pt">PT</option><option value="standard-plan">Standard Plan</option></select><button type="button" class="review-action-btn">
                       Take Action
                     </button>
                   </div>
@@ -7124,7 +7148,10 @@
 
 
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-  <script src="./js/script.js?v7"></script>
+  <script src="./js/script.js?v16"></script>
+
+
+
 
 
 </body></html>
